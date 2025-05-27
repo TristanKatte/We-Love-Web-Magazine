@@ -3,6 +3,6 @@
 </script>
 
 <MainLayout>
-  <h1>Welcome to the Magazine</h1>
-  
+  <h1>About me</h1>
+  <p>This is a digital magazine built with Svelte.</p>
 </MainLayout>

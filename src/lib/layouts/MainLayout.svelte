@@ -1,5 +1,5 @@
 <script>
-  import MenuOverlay from '$lib/components/organisms/MenuOverlay.svelte';
+
   import { isMenuOpen as menuStore } from '$lib/stores/menu.js';
 
   const menuItems = [

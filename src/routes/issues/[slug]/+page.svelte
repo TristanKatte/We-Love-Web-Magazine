@@ -1,18 +1,23 @@
 <script>
-  export let params;
+	import { error } from '@sveltejs/kit';
 
-  const modules = import.meta.glob('/src/lib/posts/*.md', { eager: true });
+	export let params;
 
-  const slug = params.slug;
-  const matched = Object.entries(modules).find(([path]) =>
-    path.includes(`${slug}.md`)
-  );
+	const modules = import.meta.glob('/src/lib/issues/*.md', { eager: true });
+	const slug = params.slug;
 
-  if (!matched) {
-    throw error(404, 'Not found');
-  }
+	const matched = Object.entries(modules).find(([path]) => path.includes(`/${slug}.md`));
 
-  const PageComponent = matched[1].default;
+	if (!matched) {
+		throw error(404, 'Issue not found');
+	}
+
+	const PageComponent = matched[1].default;
+	const metadata = matched[1].metadata;
 </script>
 
-<svelte:component this={PageComponent} />
+<article>
+	<h1>{metadata.title}</h1>
+	<p><em>{metadata.date} — {metadata.author}</em></p>
+	<svelte:component this={PageComponent} />
+</article>

@@ -1,33 +1,59 @@
 <script>
-  import MenuGrid from '$lib/components/molecules/MenuGrid.svelte';
-  import { fade, fly } from 'svelte/transition';
   export let isOpen = false;
   export let items = [];
+
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
 </script>
 
 {#if isOpen}
   <div class="overlay">
-    <p>Overlay is open!</p>
-    <MenuGrid {items} />
+    <button class="close-button" on:click={() => dispatch('close')}>✕</button>
+    <nav>
+      <ul>
+        {#each items as item}
+          <li><a href={item.href}>{item.label}</a></li>
+        {/each}
+      </ul>
+    </nav>
   </div>
-{:else}
-  <p>Overlay is closed.</p>
 {/if}
 
 <style>
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: red; /* just for debug */
-  border: 5px solid yellow;
-  color: white;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 5rem;
   z-index: 1000;
-  padding: 2rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin: 1rem 0;
+}
+
+nav a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
 }
 </style>

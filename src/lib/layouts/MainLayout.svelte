@@ -1,7 +1,6 @@
 <script>
   import MenuOverlay from '$lib/components/organisms/MenuOverlay.svelte';
-
-  let isMenuOpen = false;
+  import { isMenuOpen as menuStore } from '$lib/stores/menu.js';
 
   const menuItems = [
     { label: 'Home', href: '/' },
@@ -11,12 +10,15 @@
   ];
 </script>
 
-<button on:click={() => isMenuOpen = !isMenuOpen}>
-  {isMenuOpen ? 'Close' : 'Menu'}
-  <p>isMenuOpen: {isMenuOpen ? 'OPEN' : 'CLOSED'}</p>
+<button on:click={() => $menuStore = !$menuStore}>
+  {$menuStore ? 'Close' : 'Menu'}
 </button>
 
-<MenuOverlay isOpen={isMenuOpen} items={menuItems} />
+<MenuOverlay
+  isOpen={$menuStore}
+  items={menuItems}
+  on:close={() => $menuStore = false}
+/>
 
 <main>
   <slot />

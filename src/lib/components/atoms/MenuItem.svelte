@@ -1,28 +1,42 @@
 <script>
+  import { page } from '$app/stores';
+
   export let href = '#';
-  export let current = '';
+
+  $: currentPath = $page.url.pathname;
+  $: isActive = currentPath === href;
 </script>
 
-<a href={href} class="menu-item {current === href ? 'active' : ''}">
+<a
+  href={href}
+  class="menu-item {isActive ? 'active' : ''}"
+  aria-current={isActive ? 'page' : undefined}
+>
   <slot />
 </a>
 
 <style>
 .menu-item {
-  padding: 2rem;
+  display: block;
+  padding: 1.5rem 2rem;
+  margin: 0.5rem 0;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: white;
-background: blue;
+  background: #003366;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
 }
+
 .menu-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #005599;
+  transform: scale(1.02);
 }
+
 .menu-item.active {
-  text-decoration: underline;
+  background: #002244;
   font-weight: bold;
+  text-decoration: underline;
 }
 </style>

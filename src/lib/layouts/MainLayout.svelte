@@ -1,31 +1,17 @@
 <script>
-
-  import { isMenuOpen as menuStore } from '$lib/stores/menu.js';
-
-  const menuItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Posts', href: '/pages' },
-    { label: 'Contact', href: '/contact' }
-  ];
+  import { isMenuOpen } from '$lib/stores/menu.js';
+  import MenuGrid from '$lib/components/molecules/MenuGrid.svelte';
 </script>
 
-<button on:click={() => $menuStore = !$menuStore}>
-  {$menuStore ? 'Close' : 'Menu'}
+<button on:click={() => isMenuOpen.update(o => !o)}>
+  {#if $isMenuOpen} Close {:else} Menu {/if}
 </button>
 
-<MenuOverlay
-  isOpen={$menuStore}
-  items={menuItems}
-  on:close={() => $menuStore = false}
-/>
+<MenuGrid />
 
-<main>
-  <slot />
-</main>
+<main><slot /></main>
 
 <style>
-
 button {
   background: none;
   color: #010101;
@@ -33,5 +19,7 @@ button {
   border: 1px solid teal;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  z-index: 1100;
+  position: relative;
 }
 </style>

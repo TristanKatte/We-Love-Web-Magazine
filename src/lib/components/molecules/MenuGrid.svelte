@@ -1,29 +1,43 @@
 <script>
-  import { isMenuOpen } from '$lib/stores/menu.js';
   import { onMount } from 'svelte';
+  import * as anime from 'animejs';
+  import { isMenuOpen } from '$lib/stores/menu.js';
 
-  let menuItems = [];
+  let items = [];
 
-  onMount(async () => {
-    // Dynamically import all issue markdown files
-    const modules = import.meta.glob('/src/lib/posts/issue-*.md', { eager: true });
-    menuItems = Object.entries(modules).map(([path, module], index) => ({
-      id: `issue-${index + 1}`,
-      title: module.metadata.title || `Issue ${index + 1}`,
-      image: module.metadata.image || '/default-image.jpg',
-      slug: path.split('/').pop().replace('.md', '')
-    }));
-  });
+  // Load Markdown metadata
+  const modules = import.meta.glob('/src/lib/issues/*.md', { eager: true });
+  items = Object.entries(modules).map(([path, mod], i) => ({
+    slug: path.split('/').pop().replace('.md', ''),
+    title: mod.metadata?.title || `Issue ${i + 1}`,
+    image: mod.metadata?.image || '/placeholder.jpg',
+  }));
+
+  // Animate in when menu opens
+  $: if ($isMenuOpen) {
+    requestAnimationFrame(() => {
+      const a = anime.default;
+      a({
+        targets: '.grid-item',
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        delay: a.stagger(100, { start: 200 }),
+        duration: 600,
+        easing: 'easeOutExpo'
+      });
+    });
+  }
 </script>
 
 {#if $isMenuOpen}
-  <div class="grid-menu">
+  <div class="overlay">
+    <button class="close-btn" on:click={() => isMenuOpen.set(false)}>✕</button>
     <div class="grid-container">
-      {#each menuItems as { id, title, image, slug }}
+      {#each items as { slug, title, image }}
         <div class="grid-item">
-          <a href={`/issues/${slug}`} class="menu-item">
+          <a href={`/issues/${slug}`} class="item-link">
             <img src={image} alt={title} />
-            <div class="overlay">
+            <div class="overlay-text">
               <h3>{title}</h3>
             </div>
           </a>
@@ -34,69 +48,69 @@
 {/if}
 
 <style>
-  .grid-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.95);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    padding: 20px;
-    overflow-y: auto;
-  }
+.close-btn {
+  align-self: flex-end;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
 
-  .grid-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
 
-  .grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
+.grid-item {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #111;
+}
 
-  .grid-item:hover img {
-    transform: scale(1.1);
-  }
+.grid-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+.item-link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: white;
+}
 
-  .grid-item:hover .overlay {
-    opacity: 1;
-  }
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  width: 100%;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
 
-  .overlay h3 {
-    color: white;
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0;
-  }
+.overlay-text h3 {
+  margin: 0;
+  font-size: 1rem;
+}
 </style>

@@ -1,29 +1,28 @@
 <script>
-  import GridMenu from '$lib/components/organisms/MenuGrid.svelte';
   import { isMenuOpen } from '$lib/stores/menu.js';
+  import MenuGrid from '$lib/components/molecules/MenuGrid.svelte';
 </script>
 
-<GridMenu />
-
-<button on:click={() => $isMenuOpen = !$isMenuOpen}>
-  {$isMenuOpen ? 'Close Menu' : 'Open Menu'}
+<button on:click={() => isMenuOpen.set(true)}>
+  Open Menu
 </button>
+
+<MenuGrid />
 
 <main>
   <slot />
 </main>
 
-<style>
-  button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: none;
-    color: white;
-    font-size: 1rem;
-    border: 1px solid teal;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 1001;
-  }
-</style>
+<!-- <style>
+.menu-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1100;
+  background: #fff;
+  color: #111;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+</style> -->

@@ -1,49 +1,33 @@
 <script>
-  import { onMount, tick } from 'svelte';
+  import { tick } from 'svelte';
   import { isMenuOpen } from '$lib/stores/menu.js';
+  import { gsap } from 'gsap';
 
-  let anime;
-  let hasMounted = false;
   let items = [];
 
-  // Load Markdown metadata eagerly
+  // Load markdown metadata eagerly
   const modules = import.meta.glob('/src/lib/issues/*.md', { eager: true });
   items = Object.entries(modules).map(([path, mod], i) => ({
     slug: path.split('/').pop().replace('.md', ''),
     title: mod.metadata?.title || `Issue ${i + 1}`,
-    image: mod.metadata?.image || '/placeholder.jpg',
+    image: mod.metadata?.image || '', // leave empty to use background colors
   }));
 
-  // Set hasMounted true on client only
-  onMount(async () => {
-    hasMounted = true;
-    const mod = await import('animejs');
-    anime = mod.default || mod;
-  });
-
-  // Animate when menu opens
-$: if ($isMenuOpen && anime && hasMounted) {
-  (async () => {
-    await tick();
-    console.log('Animating grid items:', document.querySelectorAll('.grid-item').length);             // wait for DOM update
-    await new Promise(r => setTimeout(r, 50)); // tiny delay
-    anime({
-      targets: '.grid-item',
-      opacity: [0, 1],
-      scale: [0.8, 1],
-      delay: anime.stagger(100, { start: 200 }),
-      duration: 600,
-      easing: 'easeOutExpo'
-    });
-  })();
-}
-
-  // Reset styles when menu closes, but only in browser
-  $: if (!$isMenuOpen && hasMounted) {
-    const gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => {
-      item.style.opacity = 0;
-      item.style.transform = 'scale(0.8)';
+  // Animate menu items when menu opens
+  $: if ($isMenuOpen) {
+    tick().then(() => {
+      gsap.fromTo(
+        '.grid-item',
+        { opacity: 0, scale: 0.8, y: 20 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out',
+        }
+      );
     });
   }
 </script>
@@ -51,16 +35,19 @@ $: if ($isMenuOpen && anime && hasMounted) {
 {#if $isMenuOpen}
   <div class="overlay">
     <button class="close-btn" on:click={() => isMenuOpen.set(false)}>✕</button>
+
     <div class="grid-container">
-      {#each items as { slug, title, image }}
-        <div class="grid-item">
-          <a href={`/issues/${slug}`} class="item-link">
-            <img src={image} alt={title} />
-            <div class="overlay-text">
-              <h3>{title}</h3>
-            </div>
-          </a>
-        </div>
+      {#each items as { slug, title, image }, i}
+        <a
+          href={`/issues/${slug}`}
+          class="grid-item"
+          style="background: {image ? `url(${image}) center/cover no-repeat` : `hsl(${(i * 40) % 360}, 70%, 60%)`}"
+          aria-label={title}
+        >
+          <div class="overlay-text">
+            <h3>{title}</h3>
+          </div>
+        </a>
       {/each}
     </div>
   </div>
@@ -98,38 +85,27 @@ $: if ($isMenuOpen && anime && hasMounted) {
   }
 
   .grid-item {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: transform 0.3s ease;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #111;
-  }
-
-  .grid-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .item-link {
-    position: relative;
     display: block;
-    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 1rem;
     color: white;
+    text-decoration: none;
+    position: relative;
+    min-height: 180px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
   }
 
   .overlay-text {
     position: absolute;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     padding: 0.5rem 1rem;
-    box-sizing: border-box;
   }
 
   .overlay-text h3 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 </style>

@@ -3,8 +3,8 @@
   import MenuGrid from '$lib/components/molecules/MenuGrid.svelte';
 </script>
 
-<button on:click={() => isMenuOpen.update(o => !o)}>
-  {#if $isMenuOpen} Close {:else} Menu {/if}
+<button on:click={() => isMenuOpen.update(n => !n)}>
+  {$isMenuOpen ? 'Close' : 'Menu'}
 </button>
 
 <MenuGrid />

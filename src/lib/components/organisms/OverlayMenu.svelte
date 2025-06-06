@@ -49,31 +49,41 @@
 
   // GSAP animation for overlay and items
   async function animateOverlay() {
-    await tick();
+  await tick();
 
-    if (!browser) return;
+  if (!browser) return;
 
+  const overlay = document.querySelector('.menu-overlay');
+  const items = document.querySelectorAll('.menu-item');
+
+  console.log('Overlay:', overlay);
+  console.log('Menu items:', items);
+
+  // Check they exist
+  if (overlay) {
     gsap.fromTo(
-      '.menu-overlay',
+      overlay,
       { opacity: 0 },
       { opacity: 1, duration: 0.4, ease: 'power2.out' }
     );
-
-    const items = document.querySelectorAll('.menu-item');
-    if (items.length) {
-      gsap.fromTo(
-        items,
-        { opacity: 0, scale: 0.8 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: 'power3.out',
-        }
-      );
-    }
   }
+
+  if (items.length > 0) {
+    gsap.fromTo(
+      items,
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: 'power3.out',
+      }
+    );
+  } else {
+    console.warn('No .menu-item elements found to animate.');
+  }
+}
 </script>
 
 {#if $isMenuOpen}

@@ -1,42 +1,50 @@
 <script>
-  import { page } from '$app/stores';
-
-  export let href = '#';
-
-  $: currentPath = $page.url.pathname;
-  $: isActive = currentPath === href;
+  export let slug;
+  export let title;
+  export let image;
+  export let color;
+  export let className = ''; // renamed from `class`
 </script>
 
 <a
-  href={href}
-  class="menu-item {isActive ? 'active' : ''}"
-  aria-current={isActive ? 'page' : undefined}
+  href={`/issues/${slug}`}
+  class={`menu-item ${className}`}
+  style="background: {image ? `url(${image}) center/cover no-repeat` : color}" 
+  aria-label={title}
 >
-  <slot />
+  <div class="overlay-text">
+    <h3>{title}</h3>
+  </div>
 </a>
 
 <style>
-.menu-item {
-  display: block;
-  padding: 1.5rem 2rem;
-  margin: 0.5rem 0;
-  text-align: center;
-  font-size: 1.25rem;
-  color: white;
-  background: #003366;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.3s, transform 0.2s;
-}
+  .menu-item {
+    border-radius: 8px;
+    padding: 2rem;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    height: 160px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    background-size: cover;
+    background-position: center;
+  }
 
-.menu-item:hover {
-  background: #005599;
-  transform: scale(1.02);
-}
+  .menu-item:hover {
+    transform: scale(1.03);
+  }
 
-.menu-item.active {
-  background: #002244;
-  font-weight: bold;
-  text-decoration: underline;
-}
+  .overlay-text {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding: 0.5rem 1rem;
+  }
+
+  .overlay-text h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
 </style>

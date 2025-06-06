@@ -1,13 +1,11 @@
 <script>
   import { isMenuOpen } from '$lib/stores/menu.js';
-  import MenuGrid from '$lib/components/molecules/MenuGrid.svelte';
+  import OverlayMenu from '$lib/components/organisms/OverlayMenu.svelte';
 </script>
 
-<button on:click={() => isMenuOpen.set(true)}>
-  Open Menu
-</button>
 
-<MenuGrid />
+<OverlayMenu />
+
 
 <main>
   <slot />

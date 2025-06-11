@@ -1,9 +1,7 @@
-<h1>Welkom op de homepagina</h1>
-<p>We love web!</p>
+<h1>Testing Page</h1>
+
 
 
 <style>
-  h1 {
-    margin-top: 25rem;
-  }
+
 </style>

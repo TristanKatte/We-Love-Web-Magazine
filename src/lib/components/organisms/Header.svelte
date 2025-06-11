@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
 
   export let siteTitle = 'We Love Web';
@@ -12,15 +11,13 @@
 
   let navOpen = false;
 
-
-
   function navigateTo(href) {
     navOpen = false;
     goto(href);
   }
 </script>
 
-<header class="neon-header">
+<header  class="neon-header">
   <section class="top-bar">
     <h1 class="site-title">{siteTitle}</h1>
 
@@ -68,8 +65,7 @@
 		background: var(--main-bg-color);
 		color: var(--txt-color);
 		font-family: 'Orbitron', 'Segoe UI', sans-serif;
-		padding: 2rem 1rem 6rem;
-		transition: transform 0.3s ease;
+		padding: 2rem 1rem;
 		margin: 0;
 		overflow-x: hidden;
 	}

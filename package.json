@@ -24,12 +24,14 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"svelte": "^5.0.0",
 		"svelte-preprocess": "^6.0.3",
+		"typescript": "^5.8.3",
 		"vite": "^6.2.6"
 	},
 	"dependencies": {
 		"animejs": "^4.0.2",
 		"gray-matter": "^4.0.3",
 		"gsap": "^3.13.0",
-		"marked": "^15.0.12"
+		"marked": "^15.0.12",
+		"open-props": "^1.7.15"
 	}
 }

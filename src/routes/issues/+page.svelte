@@ -12,6 +12,7 @@
 </script>
 
 <h1>All Issues</h1>
+<main>
 <ul>
   {#each issues as issue}
     <li>
@@ -22,3 +23,13 @@
     </li>
   {/each}
 </ul>
+</main>
+
+<style>
+  main {
+  background-color: aqua;
+  min-height: 100vh;
+  padding: 1rem;
+  }
+
+</style>

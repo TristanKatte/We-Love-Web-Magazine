@@ -1,56 +1,63 @@
 <script>
-	import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
 
-	export let featuredPost = null;
-	export let siteTitle = 'We Love Web';
-	export let navLinks = [
-		{ href: '/', label: 'Home' },
-		{ href: '/issues', label: 'Issues' },
-		{ href: '/about', label: 'About' },
-		{ href: '/contact', label: 'Contact' }
-	];
+  export let siteTitle = 'We Love Web';
+  export let navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/issues', label: 'Issues' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' }
+  ];
 
-	let navOpen = false;
-	let lastScrollY = 0;
-	let headerVisible = true;
+  let navOpen = false;
+  let lastScrollY = 0;
+  let headerVisible = true;
 
-	function handleScroll() {
-		const currentScrollY = window.scrollY;
-		headerVisible = currentScrollY < lastScrollY || currentScrollY < 100;
-		lastScrollY = currentScrollY;
-	}
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+    headerVisible = currentScrollY < lastScrollY || currentScrollY < 100;
+    lastScrollY = currentScrollY;
+  }
 
-	onMount(() => {
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	});
+  onMount(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+  function navigateTo(href) {
+    navOpen = false;
+    goto(href);
+  }
 </script>
 
 <header class:hidden={!headerVisible} class="neon-header">
-	<div class="top-bar">
-		<h1 class="site-title">{siteTitle}</h1>
+  <div class="top-bar">
+    <h1 class="site-title">{siteTitle}</h1>
 
-		<button class="nav-toggle" on:click={() => (navOpen = !navOpen)} aria-label="Menu"> ☰ </button>
+    <button class="nav-toggle" on:click={() => (navOpen = !navOpen)} aria-label="Menu"> ☰ </button>
 
-		<nav class="main-nav" class:open={navOpen}>
-			{#each navLinks as link}
-				<a href={link.href} class="nav-link" on:click={() => (navOpen = false)}>{link.label}</a>
-			{/each}
-		</nav>
-	</div>
+    <nav class="main-nav" class:open={navOpen}>
+      {#each navLinks as link}
+        <a 
+          href={link.href} 
+          class="nav-link" 
+          on:click|preventDefault={() => navigateTo(link.href)}
+        >
+          {link.label}
+        </a>
+      {/each}
+    </nav>
+  </div>
 
-<section class="featured-post" aria-label="Featured post">
-  {#if featuredPost}
+  <section class="featured-post">
     <h2 class="featured-title">
-      <a href={`/issues/${featuredPost.slug}`}>{featuredPost.title}</a>
+      <a href="/posts/next-gen">Next Gen Intelligence: The Age of Neural Interfaces</a>
     </h2>
     <p class="featured-summary">
-      {featuredPost.summary || ''}
+      A look into tech merging with human cognition, and what the future holds.
     </p>
-  {:else}
-    <p>No featured post available.</p>
-  {/if}
-</section>
+  </section>
 </header>
 
 <style>

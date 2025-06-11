@@ -4,8 +4,8 @@
 	export let siteTitle = 'We Love Web';
 	export let navLinks = [
 		{ href: '/', label: 'Home' },
-		{ href: '/trends', label: 'Issues' },
-		{ href: '/deep-dive', label: 'About' },
+		{ href: '/issues', label: 'Issues' },
+		{ href: '/about', label: 'About' },
 		{ href: '/contact', label: 'Contact' }
 	];
 

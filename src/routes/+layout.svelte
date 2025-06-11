@@ -1,9 +1,13 @@
 <script>
-	import Header from '$lib/components/organisms/Header.svelte';
+  import Header from '$lib/components/organisms/Header.svelte';
+  export let data;
+
+  // Destructure featuredPost from data
+  const { featuredPost } = data;
 </script>
 
 <main>
-  <Header />
+  <Header {featuredPost} />
   <slot />
 </main>
 

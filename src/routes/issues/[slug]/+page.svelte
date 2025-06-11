@@ -1,10 +1,6 @@
 <script>
-  export let data;
-  const { post } = data;
+  import PostLayoutMagazine from '$lib/components/organisms/PostLayoutMagazine.svelte';
+  export let data; // contains post data from load()
 </script>
 
-<article class="issue-content">
-  <h1>{post.title}</h1>
-  <p class="post-meta">{post.date}</p>
-  <div class="post-body" innerHTML={post.content}></div>
-</article>
+<PostLayoutMagazine post={data.post} />

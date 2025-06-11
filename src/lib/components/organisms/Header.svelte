@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
+	export let featuredPost = null;
 	export let siteTitle = 'We Love Web';
 	export let navLinks = [
 		{ href: '/', label: 'Home' },
@@ -38,14 +39,18 @@
 		</nav>
 	</div>
 
-	<section class="featured-post">
-		<h2 class="featured-title">
-			<a href="/posts/next-gen">Next Gen Intelligence: The Age of Neural Interfaces</a>
-		</h2>
-		<p class="featured-summary">
-			A look into tech merging with human cognition, and what the future holds.
-		</p>
-	</section>
+<section class="featured-post" aria-label="Featured post">
+  {#if featuredPost}
+    <h2 class="featured-title">
+      <a href={`/issues/${featuredPost.slug}`}>{featuredPost.title}</a>
+    </h2>
+    <p class="featured-summary">
+      {featuredPost.summary || ''}
+    </p>
+  {:else}
+    <p>No featured post available.</p>
+  {/if}
+</section>
 </header>
 
 <style>

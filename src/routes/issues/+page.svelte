@@ -11,8 +11,9 @@
   });
 </script>
 
-<h1>All Issues</h1>
+
 <main>
+  <h1>All Issues</h1>
 <ul>
   {#each issues as issue}
     <li>

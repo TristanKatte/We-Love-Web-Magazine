@@ -13,8 +13,7 @@
 
 <style>
   main {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    padding-top: 10rem; /* of de exacte hoogte van je header */
+    min-height: 100vh;  /* zodat je content zichtbaar blijft */
   }
 </style>

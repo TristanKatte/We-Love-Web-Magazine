@@ -11,19 +11,8 @@
   ];
 
   let navOpen = false;
-  let lastScrollY = 0;
-  let headerVisible = true;
 
-  function handleScroll() {
-    const currentScrollY = window.scrollY;
-    headerVisible = currentScrollY < lastScrollY || currentScrollY < 100;
-    lastScrollY = currentScrollY;
-  }
 
-  onMount(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  });
 
   function navigateTo(href) {
     navOpen = false;
@@ -31,8 +20,8 @@
   }
 </script>
 
-<header class:hidden={!headerVisible} class="neon-header">
-  <div class="top-bar">
+<header class="neon-header">
+  <section class="top-bar">
     <h1 class="site-title">{siteTitle}</h1>
 
     <button class="nav-toggle" on:click={() => (navOpen = !navOpen)} aria-label="Menu"> ☰ </button>
@@ -48,7 +37,7 @@
         </a>
       {/each}
     </nav>
-  </div>
+  </section>
 
   <section class="featured-post">
     <h2 class="featured-title">

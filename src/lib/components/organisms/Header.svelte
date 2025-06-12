@@ -14,7 +14,7 @@
 
 <header class="neon-header">
   <section class="top-bar">
-    <h1 class="site-title">{siteTitle}</h1>
+    <a href="/"><h1 class="site-title">{siteTitle}</h1></a>
 
     <button 
       class="nav-toggle" 
@@ -59,6 +59,11 @@
 </header>
 
 <style>
+
+a {
+	text-decoration: none;
+ }
+
   .neon-header {
     position: sticky;
     top: 0;

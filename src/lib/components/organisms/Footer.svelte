@@ -37,7 +37,7 @@
 
 <footer class="neon-footer" aria-label="Footer">
   <div class="footer-container">
-    <h2 class="footer-title">{footerTitle}</h2>
+   
 
     <div class="footer-sections">
       {#each footerSections as section}

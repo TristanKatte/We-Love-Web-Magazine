@@ -26,6 +26,7 @@
 	.posts {
 		display: grid;
 		gap: var(--size-7);
+       
 
 		.post {
 			max-inline-size: var(--size-content-3);
@@ -49,4 +50,9 @@
 			}
 		}
 	}
+
+    section {
+        position: relative;
+         overflow: hidden;
+    }
 </style>

@@ -18,34 +18,6 @@
 	<Footer />
 </div>
 
-<!-- <script>
-  
-  import { onMount } from 'svelte';
-  export let data;
-
-  const { featuredPost } = data;
-
-  let headerHeight = 0;
-  let headerElement;
-
-  onMount(() => {
-    if (headerElement) {
-      // Get actual rendered height
-      headerHeight = headerElement.offsetHeight;
-    }
-  });
-</script>
-
-<Header bind:this={headerElement} {featuredPost} />
-
-<main class="layout-content" style="padding-top: {headerHeight || 160}px;">
-
-  <slot />
-</main>
-
-<style>
-
-</style> -->
 
 <style>
 	:global(:root) {
@@ -55,11 +27,17 @@
 		--heading-color: #50cece;
 		--project-card-color: #495057;
 		--strong-color: #f2e9e4;
+    --header-height: 6rem;
 	}
+
+  .layout main {
+	padding-block: var(--size-9);
+	padding-top: var(--header-height);
+}
 
 	.layout {
 		height: 100%;
-		max-inline-size: 1440px;
+		max-inline-size: 100%;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		margin-inline: auto;

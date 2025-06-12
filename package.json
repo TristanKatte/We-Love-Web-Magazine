@@ -32,6 +32,7 @@
 		"gray-matter": "^4.0.3",
 		"gsap": "^3.13.0",
 		"marked": "^15.0.12",
-		"open-props": "^1.7.15"
+		"open-props": "^1.7.15",
+		"shiki": "^3.6.0"
 	}
 }

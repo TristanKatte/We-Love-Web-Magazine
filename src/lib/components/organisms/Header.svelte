@@ -1,61 +1,101 @@
-<script>
-  import { goto } from '$app/navigation';
+<script lang="ts">
+	import * as config from '$lib/config'
+</script>
 
-  export let siteTitle = 'We Love Web';
-  export let navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/issues', label: 'Issues' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' }
-  ];
+<nav>
+	<a href="/" class="title">
+		<b>{config.title}</b>
+	</a>
+
+	<ul class="links">
+		<li>
+			<a href="/about">About</a>
+		</li>
+		<li>
+			<a href="/contact">Contact</a>
+		</li>
+		<li>
+			<a href="/rss.xml" target="_blank">RSS</a>
+		</li>
+	</ul>
+
+	<button>Toggle</button>
+</nav>
+
+<style>
+	nav {
+		padding-block: var(--size-7);
+
+		@media (min-width: 768px) {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.links {
+			margin-block: var(--size-7);
+
+			@media (min-width: 768px) {
+				display: flex;
+				gap: var(--size-7);
+				margin-block: 0;
+			}
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+</style>
+
+
+<!-- <script lang="ts">
+  import { goto } from '$app/navigation';
+  import { title as siteTitle, navLinks } from '$lib/config';
 
   let navOpen = false;
 
-  function navigateTo(href) {
+  function navigateTo(href: string) {
     navOpen = false;
     goto(href);
   }
 </script>
 
-<header  class="neon-header">
-  <section class="top-bar">
-    <h1 class="site-title">{siteTitle}</h1>
 
-    <button class="nav-toggle" on:click={() => (navOpen = !navOpen)} aria-label="Menu"> ☰ </button>
+<header class="neon-header">
+	<section class="top-bar">
+		<h1 class="site-title">{siteTitle}</h1>
 
-    <nav class="main-nav" class:open={navOpen}>
-      {#each navLinks as link}
-        <a 
-          href={link.href} 
-          class="nav-link" 
-          on:click|preventDefault={() => navigateTo(link.href)}
-        >
-          {link.label}
-        </a>
-      {/each}
-    </nav>
-  </section>
+		<button class="nav-toggle" on:click={() => (navOpen = !navOpen)} aria-label="Menu"> ☰ </button>
 
-  <section class="featured-post">
-    <h2 class="featured-title">
-      <a href="/posts/next-gen">Next Gen Intelligence: The Age of Neural Interfaces</a>
-    </h2>
-    <p class="featured-summary">
-      A look into tech merging with human cognition, and what the future holds.
-    </p>
-  </section>
+<nav class="main-nav" class:open={navOpen}>
+  {#each navLinks as link}
+    <a
+      href={link.href}
+      class="nav-link"
+      target={link.external ? "_blank" : null}
+      rel={link.external ? "noopener noreferrer" : null}
+      on:click|preventDefault={() => !link.external && navigateTo(link.href)}
+    >
+      {link.label}
+    </a>
+  {/each}
+  <button>Toggle</button>
+</nav>
+
+	</section>
+
+	<section class="featured-post">
+		<h2 class="featured-title">
+			<a href="/posts/next-gen">Next Gen Intelligence: The Age of Neural Interfaces</a>
+		</h2>
+		<p class="featured-summary">
+			A look into tech merging with human cognition, and what the future holds.
+		</p>
+	</section>
 </header>
 
 <style>
-	:global(:root) {
-		--main-bg-color: #393c44;
-		--btn-color: #00adb5;
-		--txt-color: #c2c2c2;
-		--heading-color: #50cece;
-		--project-card-color: #495057;
-		--strong-color: #f2e9e4;
-	}
-
 	.neon-header {
 		position: fixed;
 		top: 0;
@@ -87,8 +127,8 @@
 		font-weight: 700;
 		color: var(--heading-color);
 		text-shadow: 0 0 10px var(--btn-color);
-        font-size: clamp(1.5rem, 5vw, 2.5rem);
-        white-space: nowrap;
+		font-size: clamp(1.5rem, 5vw, 2.5rem);
+		white-space: nowrap;
 	}
 
 	.nav-toggle {
@@ -169,7 +209,6 @@
 		font-style: italic;
 		color: var(--txt-color);
 	}
-    
 
 	/* Responsive */
 	@media (max-width: 768px) {
@@ -200,4 +239,4 @@
 			font-size: 1.2rem;
 		}
 	}
-</style>
+</style> -->

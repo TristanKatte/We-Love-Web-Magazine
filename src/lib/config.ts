@@ -1,5 +1,12 @@
 import { dev } from '$app/environment'
 
-export const title = 'Shakespeare'
-export const description = 'SvelteKit blog for poets'
+export const title = 'We Love Web'
+export const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/issues', label: 'Issues' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/rss.xml', label: 'RSS', external: true }
+];
+export const description = 'SvelteKit blog about guest speakers at FDND'
 export const url = dev ? 'http://localhost:5173/' : 'https://joyofcode.xyz/'

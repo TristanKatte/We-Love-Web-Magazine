@@ -1,21 +1,22 @@
 <script lang="ts">
-	import Footer from '$lib/components/organisms/Footer.svelte';
-	import Header from '$lib/components/organisms/Header.svelte';
+  import Header from '$lib/components/organisms/Header.svelte';
+  import Footer from '$lib/components/organisms/Footer.svelte';
+  import 'open-props/style';
+  import 'open-props/normalize';
+  import 'open-props/buttons';
+  import '../app.css';
 
-	import 'open-props/style';
-	import 'open-props/normalize';
-	import 'open-props/buttons';
-	import '../app.css';
+  export let data;
 </script>
 
 <div class="layout">
-	<Header />
+  <Header featuredPost={data.featuredPost} />
 
-	<main>
-		<slot />
-	</main>
+  <main>
+    <slot />
+  </main>
 
-	<Footer />
+  <Footer />
 </div>
 
 
@@ -30,9 +31,8 @@
     --header-height: 6rem;
 	}
 
-  .layout main {
-	padding-block: var(--size-9);
-	padding-top: var(--header-height);
+  main {
+	overflow-y: scroll;
 }
 
 	.layout {

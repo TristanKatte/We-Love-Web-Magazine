@@ -2,6 +2,8 @@
   import { goto } from '$app/navigation';
   import { title as siteTitle, navLinks } from '$lib/config';
 
+  export let featuredPost;
+
   let navOpen = false;
 
   function navigateTo(href: string) {
@@ -46,14 +48,14 @@
     </nav>
   </section>
 
+{#if featuredPost}
   <section class="featured-post">
     <h2 class="featured-title">
-      <a href="/posts/next-gen">Next Gen Intelligence: The Age of Neural Interfaces</a>
+      <a href={`/issues/${featuredPost.slug}`}>{featuredPost.title}</a>
     </h2>
-    <p class="featured-summary">
-      A look into tech merging with human cognition, and what the future holds.
-    </p>
+    <p class="featured-summary">{featuredPost.description}</p>
   </section>
+{/if}
 </header>
 
 <style>

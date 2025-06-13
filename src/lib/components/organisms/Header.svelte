@@ -182,7 +182,6 @@ a {
     top: 100%;
     left: 0;
     right: 0;
-    width: 100%;
     background: var(--main-bg-color);
     flex-direction: column;
     display: none;
@@ -193,11 +192,13 @@ a {
 
   .main-nav.open {
     display: flex;
+    
   }
 
   .nav-link {
     font-size: 1.2rem;
     padding: 0.5rem 0;
+    
   }
 }
 </style>

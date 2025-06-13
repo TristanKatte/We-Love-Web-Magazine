@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   // Import all layout components
   import PostLayoutA from './PostLayouts/PostLayoutA.svelte';
   import PostLayoutB from './PostLayouts/PostLayoutB.svelte';
@@ -18,4 +18,4 @@
   const LayoutComponent = layoutComponents[post.layout] ?? PostLayoutA;
 </script>
 
-<svelte:component this={LayoutComponent} {post} />
+<svelte:component this={LayoutComponent} {post} /> -->

@@ -6,6 +6,7 @@ categories:
   - sveltekit
   - svelte
 published: true
+image: "/images/abstract-1.jpg"
 ---
 
 ## Svelte

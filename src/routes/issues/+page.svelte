@@ -19,9 +19,13 @@
 
 <style>
   main {
-  background-color: aqua;
+  background-color: var(--main-bg-color);
   min-height: 100vh;
   padding: 1rem;
+  }
+
+  h1 {
+    color: var(--heading-color);
   }
 
 </style>

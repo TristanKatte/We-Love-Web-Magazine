@@ -1,19 +1,19 @@
-import { error } from '@sveltejs/kit';
 import { getIssueBySlug } from '$lib/content/issues';
+import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
   try {
     const post = getIssueBySlug(params.slug);
 
     return {
-      meta: {
+      post: {
         title: post.title,
         date: post.date,
-        categories: post.categories ?? [],
-      },
-      content: post.html
+        content: post.html,
+        slug: post.slug
+      }
     };
-  } catch (e) {
-    throw error(404, e.message);
+  } catch {
+    throw error(404, 'Issue not found');
   }
 }

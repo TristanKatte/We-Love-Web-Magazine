@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
-const contentDir = path.join('src', 'lib', 'content', 'issues');
+const contentDir = path.join('src/lib/content/issues/');
 
 export function getAllIssues() {
   const files = fs.readdirSync(contentDir);

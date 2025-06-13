@@ -1,6 +1,5 @@
-import { getAllIssues } from '$lib/content/issues';
-
-export function load() {
+import { getAllIssues } from '$lib/utils/issues';
+export async function load() {
   const posts = getAllIssues();
   return { posts };
 }

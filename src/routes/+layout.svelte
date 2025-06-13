@@ -28,7 +28,6 @@
 		--heading-color: #50cece;
 		--project-card-color: #495057;
 		--strong-color: #f2e9e4;
-    --header-height: 6rem;
 	}
 
   main {

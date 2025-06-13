@@ -1,7 +1,7 @@
 ---
 title: Web sustainability guidelines
-description: green sustainability
-date: '2025-6-13'
+description: green sustainability on websites
+date: '2025-06-13'
 categories:
   - we love web
 published: true

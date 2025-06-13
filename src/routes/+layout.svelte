@@ -33,22 +33,24 @@
   main {
 	overflow-y: scroll;
 	background-color: #b8d3d1;
+	
 }
 
 	.layout {
 		height: 100%;
-		max-inline-size: 100%;
+		max-inline-size: 100vw;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		margin-inline: auto;
+		padding-inline: 1em;
+		box-sizing: border-box;
+
+	@media (max-width: 768px) {
 		padding-inline: var(--size-7);
+	}
 
-		@media (min-width: 1440px) {
-			padding-inline: 0;
-		}
-
-		main {
-			padding-block: var(--size-9);
-		}
+	@media (max-width: 1440px) {
+		padding-inline: 0;
+	}
 	}
 </style>

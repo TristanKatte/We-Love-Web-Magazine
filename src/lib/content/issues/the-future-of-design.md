@@ -2,7 +2,7 @@
 title: "The Future of Design"
 author: "Jane Doe"
 date: "2025-06-04"
-heroImage: "/images/fragrance-hero.jpg"
+description: "A brief summary of the issue."
 ---
 
 Welcome to the **first issue** of our digital magazine.

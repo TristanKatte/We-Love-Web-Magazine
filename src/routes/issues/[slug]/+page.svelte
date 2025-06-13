@@ -4,7 +4,7 @@
 </script>
 
 <article class="prose mx-auto">
-  {@html data.post.html}
+  {@html data.post.content}
 </article>
 
 

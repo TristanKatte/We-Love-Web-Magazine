@@ -192,13 +192,11 @@ a {
 
   .main-nav.open {
     display: flex;
-    
   }
 
   .nav-link {
     font-size: 1.2rem;
     padding: 0.5rem 0;
-    
   }
 }
 </style>

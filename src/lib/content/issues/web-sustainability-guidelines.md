@@ -1,5 +1,5 @@
 ---
-title: Web Sustainability guidelines
+title: Web sustainability guidelines
 description: green sustainability
 date: '2025-6-13'
 categories:

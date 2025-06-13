@@ -1,5 +1,5 @@
 ---
-title: Sustainability guidelines
+title: Web Sustainability guidelines
 description: green sustainability
 date: '2025-6-13'
 categories:
@@ -40,4 +40,28 @@ sommige dingen zijn makkelijker te meten dan andere. je weet niet wat voor devic
 
 Co2.js is een library, waarbij je kan inschatten hoeveel je website uitstoot. ook kan je weten of je website een green host heeft.
 
+"Details is data", blur delen van de afbeelding, geef een lazy-load, webp/avif bestanden gebruiken.
 
+- Verklein bestanden waar het kan
+
+- zorg ervoor dat sustainability wordt gerepresentateerd
+
+- ecograder.com, een website die een breakdown maakt van je website in hoeverre het 'groen' is.
+
+- Gebruik Web Platform features in plaats van libraries
+
+- Dependencies moeten zorgvuldig worden gebruikt en onderhouden
+
+- UI moet meer gestijld kunnen worden op het web
+
+- Ondersteun oudere Devices.
+
+- Progressive Enhancement is een goede aanpak.
+
+- Kies groene hosting. thegreenwebfoundation.org
+
+- Timing. Wanneer voer je welke taken uit. 
+
+- Gebruik alleen noodzakelijke functionaliteit
+
+- 

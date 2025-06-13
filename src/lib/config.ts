@@ -1,6 +1,7 @@
 import { dev } from '$app/environment'
 
 export const title = 'We Love Web'
+
 export const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/issues', label: 'Issues' },

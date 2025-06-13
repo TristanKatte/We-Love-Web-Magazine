@@ -32,6 +32,7 @@
 
   main {
 	overflow-y: scroll;
+	background-color: #b8d3d1;
 }
 
 	.layout {

@@ -1,5 +1,6 @@
 <script>
   export let footerTitle = 'We Love Web';
+  export const author = 'Tristan Katte';
   export let footerSections = [
     {
       title: 'Contact',
@@ -61,7 +62,7 @@
     </div>
 
     <address class="footer-copy" role="contentinfo">
-      &copy; {new Date().getFullYear()} {footerTitle}. All rights reserved.
+      &copy; {new Date().getFullYear()} {author}'s {footerTitle}. All rights reserved.
     </address>
   </div>
 </footer>
@@ -132,6 +133,7 @@ max-width: 100%;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .footer-section a:hover,

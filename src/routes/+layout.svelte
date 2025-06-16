@@ -32,7 +32,7 @@
 
   main {
 	overflow-y: scroll;
-	background-color: var(--project-card-color);
+	background-color: #8d8d8d;
 	
 }
 

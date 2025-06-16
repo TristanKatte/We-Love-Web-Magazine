@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import HeroContent from '$lib/components/molecules/HeroContent.svelte';
 </script>
 

@@ -1,5 +1,5 @@
 ---
-title: "My Custom Page"
+title: "Intro"
 description: "A brief summary of the issue."
 image: "/images/abstract-1.jpg"
 ---

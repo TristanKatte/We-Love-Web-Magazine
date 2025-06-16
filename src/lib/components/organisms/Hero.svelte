@@ -13,7 +13,7 @@
     justify-content: center;
     min-height: 100vh;
     padding: 4rem 2rem;
-    background: var(--main-bg-color, #222831);
+    background: #008080;
     text-align: left;
   }
 </style>

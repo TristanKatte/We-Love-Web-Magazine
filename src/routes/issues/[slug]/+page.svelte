@@ -35,6 +35,7 @@
 
 		h1 {
 			text-transform: capitalize;
+			color: var(--heading-color);
 		}
 
 		h1 + p {
@@ -54,4 +55,6 @@
 		}
 		
 	}
+
+	
 </style>

@@ -1,6 +1,6 @@
 ---
 title: Web sustainability guidelines
-description: green sustainability on websites
+description: Hoe Hidde de Vries en Display Green web sustainability concreet maken
 date: '2025-06-13'
 categories:
   - we love web
@@ -8,60 +8,59 @@ published: true
 image: "/images/abstract-1.jpg"
 ---
 
-# Hidde de Vries
+# 🌱 Web Sustainability: Wat We Kunnen Leren van Hidde de Vries
 
-gepresenteerd tijdens css-day, doet het nu nog een keer.
+Tijdens CSS Day kwam Hidde de Vries met een confronterende, maar inspirerende boodschap: het web dat wij bouwen draagt bij aan de klimaatcrisis — en we kunnen daar iets aan doen. Niet morgen. Nu.
 
-## Display Green
+## 💡 De Groene Missie van Display Green
 
-Display Green gaat over klimaatverandering en hoe je er als developer mee om kan gaan. Hij heeft een 'online bos' gemaakt, waarbij er in het echt bomen worden geplant. We zijn soms hypocriet, maar kunnen samen de wereld groener maken.
-Je kan je aan duurzaamheid houden volgens het Parijs pact, getekend in 2015. Op het werk kunnen we alles sneller vergroenen.
-De ict industrie is nog vervuilender dan de luchtvaart. 
+In zijn presentatie *Display Green* laat Hidde zien dat je als developer daadwerkelijk een verschil kunt maken. Niet alleen met woorden, maar met daden. Hij ontwikkelde een 'online bos': een digitale ervaring die in de echte wereld bomen laat planten. Het is een initiatief dat opvalt in zijn eenvoud en effectiviteit.
 
-## Sustainability guidelines
+Zijn boodschap is duidelijk: we hoeven niet perfect te zijn — want ja, we zijn allemaal soms een beetje hypocriet — maar we kunnen wel samen streven naar beter. Duurzamer. Groener.
 
-- 6 principes
+## 🌍 De Groene Realiteit van Tech
 
-- Progress over Perfection
+De IT-industrie is inmiddels vervuilender dan de luchtvaart. Dat klinkt misschien overdreven, maar de cijfers liegen niet. Elk bestand dat je oplaadt, elke afbeelding die je toont, elke dependency die je toevoegt — het kost allemaal energie.
 
-### voetprint WNF
+Volgens het Parijs-akkoord moeten we wereldwijd inzetten op verduurzaming. En juist op ons werk, als webmakers, kunnen we snel impact maken. Want het web is overal. En groeit nog elke dag.
 
-- data centers
-- netwerken
-- consumer devices
+## 📏 De Richtlijnen: Wat Kun Je Doen?
 
-### Elimination vs Offsetting
+### 1. Voorkomen is beter dan compenseren
 
-Uitstoot die we niet hebben, kunnen we voorkomen. Om te beginnen kunnen we webpagina's kleiner maken. medium website komen steeds meer in opkomst (467kb in 2011 tegenover 2678kb in 2025) 
+In plaats van achteraf je uitstoot te compenseren, is het veel effectiever om die uitstoot simpelweg niet te veroorzaken. Dat begint bij de basics: maak je pagina’s kleiner. 
 
-"Shaving off 1kb in a file that is loaded on 2 million websites reduces co2 emissions by ~2950kg per month", wat vergelijkbaar is met 5 vluchten Amsterdam-New York.
+Wist je dat de gemiddelde webpagina in 2011 nog 467kb was, en in 2025 inmiddels 2678kb? Een verschil van dag en nacht.
 
-sommige dingen zijn makkelijker te meten dan andere. je weet niet wat voor device iemand gebruikt, dus ga je inschatten en dat kan leiden tot incorrecte data.
+> "Shaving off 1kb in a file that is loaded on 2 million websites reduces CO2 emissions by ~2950kg per month."  
+> Danny van Kooten
+> Dat is vergelijkbaar met **5 vluchten van Amsterdam naar New York** of **een Toyota Yaris rijden voor 18.670km** of **118kg vlees eten**.
 
-Co2.js is een library, waarbij je kan inschatten hoeveel je website uitstoot. ook kan je weten of je website een green host heeft.
+### 2. Gebruik tools die inzicht geven
 
-"Details is data", blur delen van de afbeelding, geef een lazy-load, webp/avif bestanden gebruiken.
+Niet alles is makkelijk meetbaar. Je weet niet welk device iemand gebruikt of hoeveel energie er verbruikt wordt aan de andere kant van de kabel. Maar er zijn tools die helpen:
 
-- Verklein bestanden waar het kan
+- [`CO2.js`](https://www.npmjs.com/package/@tgwf/co2) – een library die de uitstoot van je website inschat.  
+- [`Ecograder`](https://ecograder.com) – analyseert je site en laat zien hoe 'groen' je echt bezig bent.  
+- [`The Green Web Foundation`](https://www.thegreenwebfoundation.org/) – check of je hostingprovider op groene stroom draait.  
 
-- zorg ervoor dat sustainability wordt gerepresentateerd
+### 3. Optimaliseer slim
 
-- ecograder.com, een website die een breakdown maakt van je website in hoeverre het 'groen' is.
+- Gebruik **lazy loading**, **blur-up technieken** en moderne bestandsformaten zoals `.webp` en `.avif`.
+- Verwijder overbodige libraries. Gebruik wat het **Web Platform zelf al biedt**.
+- Onderhoud je dependencies actief en bewust.
+- **Ondersteun oudere devices** — minder weggooien betekent minder e-waste.
 
-- Gebruik Web Platform features in plaats van libraries
+### 4. Denk na over timing en functionaliteit
 
-- Dependencies moeten zorgvuldig worden gebruikt en onderhouden
+Niet alles hoeft altijd direct geladen te worden. Denk na over *wanneer* je iets laat gebeuren — en of het echt nodig is. 
 
-- UI moet meer gestijld kunnen worden op het web
+Minimalisme is geen beperking, maar een kracht.
 
-- Ondersteun oudere Devices.
+## ✨ Progress Over Perfection
 
-- Progressive Enhancement is een goede aanpak.
+Het belangrijkste wat je kunt onthouden uit Hidde’s verhaal is dat perfectie niet het doel is. Vooruitgang wel. Elk kilobyte minder, elke beslissing die minder impact heeft op de planeet, telt.
 
-- Kies groene hosting. thegreenwebfoundation.org
+Als developers hebben we invloed. Meer dan we soms beseffen. En met die invloed komt verantwoordelijkheid.
 
-- Timing. Wanneer voer je welke taken uit. 
-
-- Gebruik alleen noodzakelijke functionaliteit
-
-- 
+Dus: wat ga jij vanaf vandaag anders doen?

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { title as siteTitle, navLinks } from '$lib/config';
+  
 
   export let featuredPost;
 
@@ -49,7 +50,7 @@
   {#if featuredPost}
     <section class="featured-post">
       <h2 class="featured-title">
-        <a href={`/issues/${featuredPost.slug}`} use:enhance>{featuredPost.title}</a>
+        <a href={`/issues/${featuredPost.slug}`}>{featuredPost.title}</a>
       </h2>
       <p class="featured-summary">{featuredPost.description}</p>
     </section>
@@ -144,6 +145,8 @@ a {
   padding: 1rem 1.5rem;
   backdrop-filter: blur(4px);
   border-radius: 4px;
+  animation-timeline: scroll();
+	animation-range: 0 150px;
 }
 
 .featured-title {
@@ -162,6 +165,30 @@ a {
 .featured-summary {
   font-style: italic;
   color: var(--txt-color);
+}
+
+@keyframes adjust-info {
+	to {
+		grid-template-columns: 4em 1fr;
+		gap: 1rem;
+		height: 4.75rem;
+	}
+}
+@keyframes shrink-name {
+	to { font-size: 1.5rem; }
+}
+@keyframes add-shadow {
+	to { box-shadow: 0 5px 5px -3px rgba(0,0,0,.26); }
+}
+@keyframes move-button {
+	to { translate: 0% 40%; }
+}
+@keyframes move-and-fade-background {
+	to {
+		translate: 0% -10%;
+		scale: 0.96;
+		opacity: 0;
+	}
 }
 
 /* Responsive */

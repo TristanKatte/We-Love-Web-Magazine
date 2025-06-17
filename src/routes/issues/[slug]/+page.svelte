@@ -36,6 +36,8 @@
 		h1 {
 			text-transform: capitalize;
 			color: var(--heading-color);
+			font-family: 'Cantarell', sans-serif;
+			font-weight: 700;
 		}
 
 		h1 + p {
@@ -43,10 +45,17 @@
 			color: var(--text-2);
 		}
 
+		p {
+			font-family: "Ruluko", sans-serif;
+			font-weight: 400;
+		}
+
 		.tags {
 			display: flex;
 			gap: var(--size-3);
 			margin-top: var(--size-7);
+			font-family: "Numans", sans-serif;
+			font-weight: 400;
 
 			> * {
 				padding: var(--size-2) var(--size-3);

@@ -1,5 +1,9 @@
-/* @import '@fontsource/atkinson-hyperlegible';
-@import '@fontsource/jetbrains-mono'; */
+@import '@fontsource/numans';
+@import '@fontsource/ruluko';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource/montserrat-alternates';
+@import '@fontsource/cantarell/700.css';
+
 
 html {
 	/* font */
@@ -87,6 +91,7 @@ html,
 body {
 	height: 100%;
 	max-width: 100%;
+	scroll-behavior: smooth;
 }
 
 html {
@@ -141,17 +146,20 @@ li {
 			display: contents;
 		}
 		color: var(--txt-color);
+		font-family: "Numans", sans-serif;
 	}
 
 	:is(h1, h2, h3, h4, h5, h6) {
 		margin-top: var(--size-8);
 		margin-bottom: var(--size-3);
 		color: var(--heading-color);
+		font-family: 'Cantarell', sans-serif;
 	}
 
 	:is(ul, ol) {
 		list-style-type: '🔥';
 		padding-left: var(--size-5);
+		font-family: "Numans", sans-serif;
 	}
 
 	:is(ul, ol) li {

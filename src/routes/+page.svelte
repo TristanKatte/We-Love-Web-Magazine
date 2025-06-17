@@ -13,7 +13,7 @@
 
 <Hero />
 
-<section>
+<section id="posts">
 	<ul class="posts">
 		{#each data.posts as post}
 			<li class="post">
@@ -56,6 +56,8 @@
 
     section {
         position: relative;
-         overflow: hidden;
+        overflow: hidden;
+		height: 100vh;
+		font-family: montserrat, sans-serif;
     }
 </style>

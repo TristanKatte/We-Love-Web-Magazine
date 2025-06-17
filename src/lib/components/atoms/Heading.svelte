@@ -9,7 +9,8 @@
 <style>
   .heading {
     font-size: 2.5rem;
-    font-weight: bold;
     color: var(--heading-color, #00adb5);
+    font-family: 'Cantarell', sans-serif;
+    font-weight: 700;
   }
 </style>

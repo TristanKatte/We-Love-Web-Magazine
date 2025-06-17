@@ -1,24 +1,23 @@
 <script lang="ts">
-  import Header from '$lib/components/organisms/Header.svelte';
-  import Footer from '$lib/components/organisms/Footer.svelte';
-  import 'open-props/style';
-  import 'open-props/normalize';
-  import 'open-props/buttons';
-  import '../app.css';
+	import Header from '$lib/components/organisms/Header.svelte';
+	import Footer from '$lib/components/organisms/Footer.svelte';
+	import 'open-props/style';
+	import 'open-props/normalize';
+	import 'open-props/buttons';
+	import '../app.css';
 
-  export let data;
+	export let data;
 </script>
 
 <div class="layout">
-  <Header featuredPost={data.featuredPost} />
+	<Header featuredPost={data.featuredPost} />
 
-  <main>
-    <slot />
-  </main>
+	<main>
+		<slot />
+	</main>
 
-  <Footer />
+	<Footer />
 </div>
-
 
 <style>
 	:global(:root) {
@@ -30,26 +29,34 @@
 		--strong-color: #f2e9e4;
 	}
 
-  main {
-	overflow-y: scroll;
-	background-color: #8d8d8d;
-	
-}
+	:global(html) {
+    	scroll-behavior: smooth;
+  	}
+
+	main {
+		overflow-y: scroll;
+		scroll-snap-type: y mandatory;
+		background-color: var(--surface-4)
+	}
+
 
 	.layout {
-		height: 100%;
+		max-height: 100%;
 		max-inline-size: 100%;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		margin-inline: auto;
 		box-sizing: border-box;
+		scroll-behavior: smooth;
+		
 
-	@media (max-width: 768px) {
-		padding-inline: var(--size-7);
-	}
 
-	@media (max-width: 1440px) {
-		padding-inline: 0;
-	}
+		@media (max-width: 768px) {
+			padding-inline: var(--size-7);
+		}
+
+		@media (max-width: 1440px) {
+			padding-inline: 0;
+		}
 	}
 </style>

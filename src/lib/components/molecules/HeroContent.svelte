@@ -7,7 +7,7 @@
 <section class="hero-content">
   <Heading level={1}>Hi, I’m Tristan. Frontend Developer.</Heading>
   <Text>I create responsive websites using modern frontend technologies. Let's build something great together.</Text>
-  <Button href="#work">View Work</Button>
+  <Button href="#posts">View Posts</Button>
 </section>
 
 <style>
@@ -15,6 +15,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 600px;
+    width: 75%;
   }
 </style>

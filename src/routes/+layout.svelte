@@ -38,11 +38,10 @@
 
 	.layout {
 		height: 100%;
-		max-inline-size: 100vw;
+		max-inline-size: 100%;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		margin-inline: auto;
-		padding-inline: 1em;
 		box-sizing: border-box;
 
 	@media (max-width: 768px) {

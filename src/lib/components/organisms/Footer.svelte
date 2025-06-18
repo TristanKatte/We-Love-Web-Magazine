@@ -2,7 +2,7 @@
   export let footerTitle = 'We Love Web';
   export const author = 'Tristan Katte';
 
-  // Simplified nav links — similar to header
+  
   export let footerLinks = [
     { label: 'Home', href: '/' },
     { label: 'Issues', href: '/issues' },
@@ -38,7 +38,7 @@
 <style>
 .neon-footer {
   width: 100%;
-  background: var(--main-bg-color);
+  background: transparent;
   color: var(--txt-color);
   font-family: 'Orbitron', 'Segoe UI', sans-serif;
   padding: 2rem 1rem;

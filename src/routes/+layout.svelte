@@ -12,7 +12,9 @@
 <div class="layout">
 	<Header featuredPost={data.featuredPost} />
 
+
 	<main>
+		
 		<slot />
 	</main>
 
@@ -36,18 +38,19 @@
 	main {
 		overflow-y: scroll;
 		scroll-snap-type: y mandatory;
-		background-color: var(--surface-4)
 	}
 
 
 	.layout {
-		max-height: 100%;
+		min-height: 100vh;
 		max-inline-size: 100%;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		margin-inline: auto;
 		box-sizing: border-box;
 		scroll-behavior: smooth;
+		background: var(--gradient-16);
+		z-index: 1;
 		
 
 

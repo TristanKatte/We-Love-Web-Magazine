@@ -5,8 +5,8 @@
 </script>
 
 <section class="hero-content">
-  <Heading level={1}>Hi, I’m Tristan. Frontend Developer.</Heading>
-  <Text>I create responsive websites using modern frontend technologies. Let's build something great together.</Text>
+  <Heading level={1}>Hi, Welcome to my We Love Web Blog</Heading>
+  <Text>Conversations with the creators, thinkers, and doers behind the digital world. Dive into the insights shared by FDND’s guest speakers — where education meets real-world experience.</Text>
   <Button href="#posts">View Posts</Button>
 </section>
 

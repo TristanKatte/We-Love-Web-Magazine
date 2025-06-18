@@ -19,7 +19,7 @@
 
 <style>
   main {
-  background-color: var(--main-bg-color);
+  background: transparent;
   min-height: 100vh;
   padding: 1rem;
   }

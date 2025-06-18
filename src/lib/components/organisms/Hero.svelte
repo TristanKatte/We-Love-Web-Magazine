@@ -112,7 +112,11 @@
   }
 
   .hero-right{
-    transform: translateX(50em);
+    transform: translateX(10rem);
+  }
+
+  .hero-left {
+	transform: translateX(10rem);
   }
 
 .container {

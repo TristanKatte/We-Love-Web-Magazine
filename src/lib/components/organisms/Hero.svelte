@@ -3,31 +3,21 @@
   import { gsap } from 'gsap';
   import HeroContent from '$lib/components/molecules/HeroContent.svelte';
 
-  onMount(() => {
-    gsap.from('.hero-left', {
-      x: -50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.out'
-    });
+onMount(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    gsap.from('.hero-right', {
-      x: 100,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
-      delay: 0.3
-    });
-  });
+  gsap.from('.hero-left', { x: -50, opacity: 0, duration: 1, ease: 'power2.out' });
+  gsap.from('.hero-right', { x: 100, opacity: 0, duration: 1, ease: 'power2.out', delay: 0.3 });
+});
 </script>
 
-<section class="hero">
+<section class="hero" aria-label="Introductie">
   <section class="hero-left">
     <HeroContent />
   </section>
   <section class="hero-right">
     <div class="mix-blend-mode"></div>
-<div class="container">
+<div class="container" role="img" aria-label="Draaiende geometrische 3D-vormen die een visueel element voorstellen.">
 	{#each { length: 6 }, i}
 		{@const index = i + 1}
 		<div class="item" style:--i={i}>
@@ -38,7 +28,7 @@
 		</div>
 	{/each}
 
-	<div class="ball-container">
+	<div class="ball-container" aria-hidden="true">
 		<div class="ball"></div>
 	</div>
 </div>
@@ -109,6 +99,8 @@
   .hero-left,
   .hero-right {
     flex: 1;
+	opacity: 1;
+  	transform: none;
   }
 
   .hero-right{

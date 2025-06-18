@@ -67,24 +67,30 @@ html {
 [color-scheme='dark'] {
 	color-scheme: dark;
 
-		--main-bg-color: #393c44;
-		--btn-color: #00adb5;
-		--txt-color: #c2c2c2;
-		--heading-color: #50cece;
-		--project-card-color: #495057;
-		--strong-color: #f2e9e4;
+	--brand: var(--brand-dark);
+	--text-1: var(--text-1-dark);
+	--text-2: var(--text-2-dark);
+	--surface-1: var(--surface-1-dark);
+	--surface-2: var(--surface-2-dark);
+	--surface-3: var(--surface-3-dark);
+	--surface-4: var(--surface-4-dark);
+	--background: var(--background-dark);
+	--border: var(--border-dark);
 
 }
 
 [color-scheme='light'] {
 	color-scheme: light;
 
-		--main-bg-color: #f9f9fb;
-		--btn-color: #007a83;
-		--txt-color: #2e2e2e;
-		--heading-color: #006d70;
-		--project-card-color: #e4e9ec;
-		--strong-color: #111111;
+		--brand: var(--brand-light);
+		--text-1: var(--text-1-light);
+		--text-2: var(--text-2-light);
+		--surface-1: var(--surface-1-light);
+		--surface-2: var(--surface-2-light);
+		--surface-3: var(--surface-3-light);
+		--surface-4: var(--surface-4-light);
+		--background: var(--background-light);
+		--border: var(--border-light);
 }
 
 html,
@@ -92,6 +98,8 @@ body {
 	height: 100%;
 	max-width: 100%;
 	scroll-behavior: smooth;
+	overflow-x: hidden;
+	
 }
 
 html {

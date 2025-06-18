@@ -5,9 +5,9 @@
 </script>
 
 <section class="hero-content">
-  <Heading level={1}>Hi, Welcome to my We Love Web Blog</Heading>
-  <Text>Conversations with the creators, thinkers, and doers behind the digital world. Dive into the insights shared by FDND’s guest speakers — where education meets real-world experience.</Text>
-  <Button href="#posts">View Posts</Button>
+  <Heading level={1}>Hi, Welkom bij mijn We Love Web Blog</Heading>
+  <Text>Gesprekken met de makers, denkers en doeners achter de digitale wereld. Duik in de inzichten van de gastsprekers van FDND – waar onderwijs en praktijkervaring samenkomen.</Text>
+  <Button href="#posts" aria-label="Bekijk alle blogposts">Bekijk alle Posts</Button>
 </section>
 
 <style>

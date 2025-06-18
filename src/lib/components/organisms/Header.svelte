@@ -70,6 +70,10 @@ a {
   padding: 2rem 1rem;
   margin: 0;
   overflow-x: hidden;
+  animation-name: shrink;
+  animation-timeline: scroll();
+  animation-duration: 1ms;
+  animation-range: 0px 400px;
 }
 
 .top-bar {
@@ -141,8 +145,10 @@ a {
   padding: 1rem 1.5rem;
   backdrop-filter: blur(4px);
   border-radius: 4px;
+  animation-name: shrink-featured;
   animation-timeline: scroll();
-	animation-range: 0 150px;
+  animation-duration: 5ms;
+  animation-range: 0px 500px;
 }
 
 .featured-title {
@@ -163,28 +169,22 @@ a {
   color: var(--txt-color);
 }
 
-@keyframes adjust-info {
-	to {
-		grid-template-columns: 4em 1fr;
-		gap: 1rem;
-		height: 4.75rem;
-	}
+@keyframes shrink {
+  from {
+    height: 250px;
+  }
+  to {
+    height: 60px;
+  }
 }
-@keyframes shrink-name {
-	to { font-size: 1.5rem; }
-}
-@keyframes add-shadow {
-	to { box-shadow: 0 5px 5px -3px rgba(0,0,0,.26); }
-}
-@keyframes move-button {
-	to { translate: 0% 40%; }
-}
-@keyframes move-and-fade-background {
-	to {
-		translate: 0% -10%;
-		scale: 0.96;
-		opacity: 0;
-	}
+
+@keyframes shrink-featured {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /* Responsive */

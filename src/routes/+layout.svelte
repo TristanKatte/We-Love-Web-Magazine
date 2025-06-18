@@ -25,7 +25,7 @@
 	:global(:root) {
 		--main-bg-color: #393c44;
 		--btn-color: #00adb5;
-		--txt-color: #c2c2c2;
+		--txt-color: #DEDEDE;
 		--heading-color: #50cece;
 		--project-card-color: #495057;
 		--strong-color: #f2e9e4;

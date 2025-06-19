@@ -70,11 +70,11 @@ a {
   padding: 2rem 1rem;
   margin: 0;
   overflow-x: hidden;
-  animation-name: shrink;
+  animation: shrink;
   animation-timeline: scroll();
-  animation-duration: 1ms;
-  animation-range: 0px 400px;
-  overflow: hidden;
+  animation-duration: 5ms;
+  animation-range: 0px 300px;
+  /* overflow: hidden; */
 }
 
 .top-bar {

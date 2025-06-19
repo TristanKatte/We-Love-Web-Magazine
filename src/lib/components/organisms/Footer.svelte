@@ -1,4 +1,6 @@
 <script>
+	import Button from "../atoms/Button.svelte";
+
   export let footerTitle = 'We Love Web';
   export const author = 'Tristan Katte';
 

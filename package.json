@@ -33,9 +33,11 @@
 		"@fontsource/montserrat-alternates": "^5.2.6",
 		"@fontsource/numans": "^5.2.6",
 		"@fontsource/ruluko": "^5.2.6",
+		"@lucide/svelte": "^0.518.0",
 		"animejs": "^4.0.2",
 		"gray-matter": "^4.0.3",
 		"gsap": "^3.13.0",
+		"lucide-svelte": "^0.518.0",
 		"marked": "^15.0.12",
 		"open-props": "^1.7.15",
 		"shiki": "^3.6.0"

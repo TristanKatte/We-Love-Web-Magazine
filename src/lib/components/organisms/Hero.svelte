@@ -19,24 +19,26 @@
 		<HeroContent />
 	</section>
 	<section class="hero-right">
-		<div class="mix-blend-mode"></div>
-		<div
-			class="container"
-			role="img"
-			aria-label="Draaiende geometrische 3D-vormen die een visueel element voorstellen."
-		>
-			{#each { length: 6 }, i}
-				{@const index = i + 1}
-				<div class="item" style:--i={i}>
-					<div class="surface" style:--i={index + i}></div>
-					<div class="surface" style:--i={index * 2}></div>
-					<div class="top" style:--i={index * 2 - 1}></div>
-					<div class="left"></div>
-				</div>
-			{/each}
+		<div class="container-wrapper">
+			<div class="mix-blend-mode"></div>
+			<div
+				class="container"
+				role="img"
+				aria-label="Draaiende geometrische 3D-vormen die een visueel element voorstellen."
+			>
+				{#each { length: 6 }, i}
+					{@const index = i + 1}
+					<div class="item" style:--i={i}>
+						<div class="surface" style:--i={index + i}></div>
+						<div class="surface" style:--i={index * 2}></div>
+						<div class="top" style:--i={index * 2 - 1}></div>
+						<div class="left"></div>
+					</div>
+				{/each}
 
-			<div class="ball-container" aria-hidden="true">
-				<div class="ball"></div>
+				<div class="ball-container" aria-hidden="true">
+					<div class="ball"></div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -93,35 +95,36 @@
 
 	.hero {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		justify-content: space-between;
-		height: 100vh;
-		padding: 4rem 2rem;
-		margin: auto;
-		background-image: var(--gradient-16);
+		justify-content: center;
+		padding: 2rem 1rem;
 		gap: 2rem;
+		text-align: center;
+		background-image: var(--gradient-16);
 	}
 
 	.hero-left,
 	.hero-right {
-		flex: 1;
-		opacity: 1;
-		transform: none;
+		width: 100%;
+		max-width: 600px;
 	}
 
 	.hero-right {
-		transform: translateX(10rem);
+		display: flex;
+		justify-content: center;
 	}
 
-	.hero-left {
-		transform: translateX(10rem);
+	.container-wrapper {
+		display: flex;
+		justify-content: center;
+		width: 100%;
 	}
 
 	.container {
 		--angle: 0deg;
-
 		aspect-ratio: 1 / 1.2;
-		width: min(45vmin, 90vw);
+		width: 75vmin;
 		position: relative;
 		transform-style: preserve-3d;
 		transform: rotateX(-45deg) rotateY(45deg);
@@ -131,9 +134,8 @@
 	.item {
 		--gap: 10vmin;
 		--gap-offset: calc(var(--i) - 3);
-
 		position: absolute;
-		inset: 0px;
+		inset: 0;
 		transform: translateZ(calc(var(--gap) * var(--gap-offset)));
 		filter: var(--glow);
 	}
@@ -272,73 +274,76 @@
 		transform: rotateX(45deg) rotateY(45deg) translateY(-20vmin);
 	}
 
-	@media (max-width: 1024px) {
-		.hero {
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			padding: clamp(1.5rem, 4vw, 3rem);
-			gap: 2rem;
-			height: auto;
-		}
+@media (min-width: 768px) {
+  .hero {
+    padding: 3rem 2rem;
+    gap: 3rem;
+  }
 
-		.hero-left,
-		.hero-right {
-			transform: none;
-			width: 100%;
-			align-items: center;
-			display: flex;
-			justify-content: center;
-			padding: 2em;
-		}
+  .container {
+    width: 60vmin;
+  }
 
-		.hero-right {
-			margin-top: 5em;
-			margin-bottom: 8em;
-		}
+  .ball {
+    --diameter: 25vmin;
+  }
+}
 
-		.container {
-			justify-content: center;
-			align-items: center;
-			width: 45vmin;
-		}
-	}
+@media (min-width: 1024px) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 4rem 2rem;
+    text-align: left;
+  }
 
-	@media (max-width: 768px) {
-		.hero {
-			flex-direction: column;
-			text-align: center;
-			padding: 3rem 1.5rem;
-			height: auto;
-		}
+  .hero-left,
+  .hero-right {
+    max-width: none;
+    flex: 1;
+  }
 
-		.hero-left {
-			order: 2;
-		}
+  .container {
+    width: 45vmin;
+  }
 
-		.hero-right {
-			order: 1;
-			margin-bottom: 2em;
-		}
-	}
+  .ball {
+    --diameter: 30vmin;
+  }
+}
 
-	@media (max-width: 480px) {
-		.hero {
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-			text-align: center;
-			padding: 1rem 0.5rem;
-		}
+@media (max-width: 480px) {
+  .hero {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
 
-		.hero-left {
-			order: 1;
-		}
+  .hero-left,
+  .hero-right {
+    width: 100%;
+    max-width: 100%;
+	display: flex;
+	justify-content: center;
+  }
 
-		.hero-right {
-			order: 2;
-			
-		}
-	}
+  .container {
+	margin: 5em;
+    width: 50vmin;
+    aspect-ratio: 1 / 1.2;
+    transform: rotateX(-35deg) rotateY(35deg); 
+  }
+
+  .ball {
+    --diameter: 25vmin;
+    transform: rotateX(45deg) rotateY(45deg) translateY(-10vmin);
+  }
+
+  .item {
+    --gap: 9vmin; 
+  }
+}
+
+
 </style>

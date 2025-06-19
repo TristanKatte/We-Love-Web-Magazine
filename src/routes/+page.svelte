@@ -60,8 +60,4 @@
 		height: 100vh;
 		font-family: montserrat, sans-serif;
     }
-
-	#posts {
-		overflow: hidden;
-	}
 </style>

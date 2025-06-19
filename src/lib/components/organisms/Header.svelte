@@ -206,6 +206,7 @@ a {
     top: 100%;
     left: 0;
     right: 0;
+  
     background: var(--main-bg-color);
     flex-direction: column;
     display: none;
@@ -216,6 +217,7 @@ a {
 
   .main-nav.open {
     display: flex;
+    
   }
 
   .nav-link {

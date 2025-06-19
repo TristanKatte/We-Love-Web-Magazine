@@ -2,7 +2,7 @@
 	import { formatDate } from '$lib/utils';
 	import * as config from '$lib/config';
 	import Hero from '$lib/components/organisms/Hero.svelte';
-
+	
 	export let data;
 </script>
 
@@ -14,6 +14,7 @@
 <Hero />
 
 <section id="posts">
+	
 	<ul class="posts">
 		{#each data.posts as post}
 			<li class="post">

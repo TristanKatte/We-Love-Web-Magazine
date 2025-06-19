@@ -1,14 +1,19 @@
 <script lang="ts">
-  export let size: 'small' | 'medium' | 'large' = 'medium';
+  import { ArrowDown } from 'lucide-svelte';
+
   export let href = '#';
+  export let size: 'small' | 'medium' | 'large' | null = null;
 </script>
 
-<a href={href} class="button {size}">
+<a
+  href={href}
+  class="button responsive {size}"
+>
   <span class="text">
     <slot />
   </span>
   <span class="icon-wrapper" aria-hidden="true">
-    <slot name="icon" />
+    <ArrowDown size="24" />
   </span>
 </a>
 
@@ -19,13 +24,10 @@
   gap: 0.5rem;
   justify-content: center;
   font-family: 'montserrat-alternates', 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
   text-transform: uppercase;
   color: var(--btn-color);
   background: transparent;
   border: 2px solid var(--btn-color);
-  padding: 0.75rem 1.5rem;
   border-radius: 8px;
   text-shadow: 0 0 5px var(--btn-color);
   box-shadow:
@@ -37,8 +39,10 @@
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  font-weight: 600;
 }
 
+/* Hover/focus styling */
 .button:hover {
   background: var(--btn-color);
   color: black;
@@ -48,13 +52,30 @@
     0 0 20px var(--btn-color),
     inset 0 0 10px white;
 }
-
 .button:focus {
   outline: 2px dashed var(--btn-color);
   outline-offset: 4px;
 }
 
-/* Size variants */
+/* RESPONSIVE default if no size prop is set */
+.button.responsive:not(.small):not(.medium):not(.large) {
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+}
+@media (min-width: 640px) {
+  .button.responsive:not(.small):not(.medium):not(.large) {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .button.responsive:not(.small):not(.medium):not(.large) {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* Manual override sizes via prop */
 .button.small {
   padding: 0.4rem 1rem;
   font-size: 0.85rem;
@@ -68,13 +89,12 @@
   font-size: 1.25rem;
 }
 
-/* Icon styling */
+/* Icon animation */
 .icon-wrapper {
   display: inline-flex;
   align-items: center;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 .button:hover .icon-wrapper {
   transform: translateX(0.25rem) scale(1.05);
   filter: drop-shadow(0 0 6px white);

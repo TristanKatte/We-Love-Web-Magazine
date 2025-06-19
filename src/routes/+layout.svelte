@@ -38,6 +38,7 @@
 	main {
 		overflow-y: scroll;
 		scroll-snap-type: y mandatory;
+		overflow: hidden;
 	}
 
 
@@ -51,6 +52,7 @@
 		scroll-behavior: smooth;
 		background: var(--gradient-16);
 		z-index: 1;
+		overflow: hidden;
 		
 
 

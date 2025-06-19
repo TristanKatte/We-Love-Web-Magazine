@@ -1,39 +1,45 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { gsap } from 'gsap';
-  import HeroContent from '$lib/components/molecules/HeroContent.svelte';
+	import { onMount } from 'svelte';
+	import { gsap } from 'gsap';
+	import HeroContent from '$lib/components/molecules/HeroContent.svelte';
 
-onMount(() => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	onMount(() => {
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-  gsap.from('.hero-left', { x: -50, opacity: 0, duration: 1, ease: 'power2.out' });
-  gsap.from('.hero-right', { x: 100, opacity: 0, duration: 1, ease: 'power2.out', delay: 0.3 });
-});
+		if (prefersReducedMotion || isMobile) return;
+
+		gsap.from('.hero-left', { x: -50, opacity: 0, duration: 1, ease: 'power2.out' });
+		gsap.from('.hero-right', { x: 100, opacity: 0, duration: 1, ease: 'power2.out', delay: 0.3 });
+	});
 </script>
 
 <section class="hero" aria-label="Introductie">
-  <section class="hero-left">
-    <HeroContent />
-  </section>
-  <section class="hero-right">
-    <div class="mix-blend-mode"></div>
-<div class="container" role="img" aria-label="Draaiende geometrische 3D-vormen die een visueel element voorstellen.">
-	{#each { length: 6 }, i}
-		{@const index = i + 1}
-		<div class="item" style:--i={i}>
-			<div class="surface" style:--i={index + i}></div>
-			<div class="surface" style:--i={index * 2}></div>
-			<div class="top" style:--i={index * 2 - 1}></div>
-			<div class="left"></div>
-		</div>
-	{/each}
+	<section class="hero-left">
+		<HeroContent />
+	</section>
+	<section class="hero-right">
+		<div class="mix-blend-mode"></div>
+		<div
+			class="container"
+			role="img"
+			aria-label="Draaiende geometrische 3D-vormen die een visueel element voorstellen."
+		>
+			{#each { length: 6 }, i}
+				{@const index = i + 1}
+				<div class="item" style:--i={i}>
+					<div class="surface" style:--i={index + i}></div>
+					<div class="surface" style:--i={index * 2}></div>
+					<div class="top" style:--i={index * 2 - 1}></div>
+					<div class="left"></div>
+				</div>
+			{/each}
 
-	<div class="ball-container" aria-hidden="true">
-		<div class="ball"></div>
-	</div>
-</div>
-   
-  </section>
+			<div class="ball-container" aria-hidden="true">
+				<div class="ball"></div>
+			</div>
+		</div>
+	</section>
 </section>
 
 <style>
@@ -50,7 +56,7 @@ onMount(() => {
 		--glow: drop-shadow(0 0 6vmin oklch(1 0 0 / 19%));
 	}
 
-  	@property --angle {
+	@property --angle {
 		syntax: '<angle>';
 		inherits: true;
 		initial-value: 0deg;
@@ -65,7 +71,7 @@ onMount(() => {
 		}
 	}
 
-  @keyframes ball-container {
+	@keyframes ball-container {
 		0% {
 			transform: translateZ(-40vmin);
 			opacity: 0;
@@ -85,37 +91,37 @@ onMount(() => {
 		}
 	}
 
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    padding: 4rem 2rem;
-    margin: auto;
-    background-image: var(--gradient-16);
-    gap: 2rem;
-  }
+	.hero {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100vh;
+		padding: 4rem 2rem;
+		margin: auto;
+		background-image: var(--gradient-16);
+		gap: 2rem;
+	}
 
-  .hero-left,
-  .hero-right {
-    flex: 1;
-	opacity: 1;
-  	transform: none;
-  }
+	.hero-left,
+	.hero-right {
+		flex: 1;
+		opacity: 1;
+		transform: none;
+	}
 
-  .hero-right{
-    transform: translateX(10rem);
-  }
+	.hero-right {
+		transform: translateX(10rem);
+	}
 
-  .hero-left {
-	transform: translateX(10rem);
-  }
+	.hero-left {
+		transform: translateX(10rem);
+	}
 
-.container {
+	.container {
 		--angle: 0deg;
-		
+
 		aspect-ratio: 1 / 1.2;
-		width: 45vmin;
+		width: min(45vmin, 90vw);
 		position: relative;
 		transform-style: preserve-3d;
 		transform: rotateX(-45deg) rotateY(45deg);
@@ -223,7 +229,7 @@ onMount(() => {
 		transform: skewY(55deg) translateY(2.9vmin);
 	}
 
-  .ball-container {
+	.ball-container {
 		display: grid;
 		place-items: center;
 		position: absolute;
@@ -266,19 +272,73 @@ onMount(() => {
 		transform: rotateX(45deg) rotateY(45deg) translateY(-20vmin);
 	}
 
-  @media (max-width: 1024px) {
-    .hero {
-      flex-direction: column;
-      text-align: center;
-      padding: 3rem 1.5rem;
-    }
+	@media (max-width: 1024px) {
+		.hero {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			padding: clamp(1.5rem, 4vw, 3rem);
+			gap: 2rem;
+			height: auto;
+		}
 
-    .hero-left {
-      order: 2;
-    }
+		.hero-left,
+		.hero-right {
+			transform: none;
+			width: 100%;
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			padding: 2em;
+		}
 
-    .hero-right {
-      order: 1;
-    }
-  }
+		.hero-right {
+			margin-top: 5em;
+			margin-bottom: 8em;
+		}
+
+		.container {
+			justify-content: center;
+			align-items: center;
+			width: 45vmin;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			flex-direction: column;
+			text-align: center;
+			padding: 3rem 1.5rem;
+			height: auto;
+		}
+
+		.hero-left {
+			order: 2;
+		}
+
+		.hero-right {
+			order: 1;
+			margin-bottom: 2em;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+			padding: 1rem 0.5rem;
+		}
+
+		.hero-left {
+			order: 1;
+		}
+
+		.hero-right {
+			order: 2;
+			
+		}
+	}
 </style>

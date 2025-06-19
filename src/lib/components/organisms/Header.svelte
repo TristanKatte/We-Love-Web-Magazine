@@ -74,6 +74,7 @@ a {
   animation-timeline: scroll();
   animation-duration: 1ms;
   animation-range: 0px 400px;
+  overflow: hidden;
 }
 
 .top-bar {
@@ -147,7 +148,7 @@ a {
   border-radius: 4px;
   animation-name: shrink-featured;
   animation-timeline: scroll();
-  animation-duration: 5ms;
+  animation-duration: 1ms;
   animation-range: 0px 500px;
 }
 

@@ -29,7 +29,7 @@
 	.posts {
 		display: grid;
 		gap: var(--size-7);
-       
+        
 
 		.post {
 			max-inline-size: var(--size-content-3);
@@ -56,8 +56,12 @@
 
     section {
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
 		height: 100vh;
 		font-family: montserrat, sans-serif;
     }
+
+	#posts {
+		overflow: hidden;
+	}
 </style>

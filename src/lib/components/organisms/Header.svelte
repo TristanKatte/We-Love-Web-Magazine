@@ -74,7 +74,6 @@ a {
   animation-timeline: scroll();
   animation-duration: 5ms;
   animation-range: 0px 300px;
-  /* overflow: hidden; */
 }
 
 .top-bar {

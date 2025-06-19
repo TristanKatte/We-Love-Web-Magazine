@@ -23,7 +23,7 @@
   align-items: center;
   gap: 0.5rem;
   justify-content: center;
-  font-family: 'montserrat-alternates', 'Segoe UI', sans-serif;
+  font-family: 'cantarell', 'Segoe UI', sans-serif;
   text-transform: uppercase;
   color: var(--btn-color);
   background: transparent;

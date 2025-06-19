@@ -64,7 +64,7 @@ a {
 
 .neon-header {
   z-index: 9999;
-  background: var(--gradient-16), transparent;
+  background:  transparent;
   color: var(--txt-color);
   font-family: 'Orbitron', 'Segoe UI', sans-serif;
   padding: 2rem 1rem;

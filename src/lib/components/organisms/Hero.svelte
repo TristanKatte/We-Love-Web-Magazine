@@ -101,7 +101,6 @@
 		padding: 2rem 1rem;
 		gap: 2rem;
 		text-align: center;
-		background-image: var(--gradient-16);
 	}
 
 	.hero-left,

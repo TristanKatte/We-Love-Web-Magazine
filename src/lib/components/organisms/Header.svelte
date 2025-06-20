@@ -92,6 +92,12 @@ a {
   white-space: nowrap;
 }
 
+.site-title:focus-visible {
+  outline: 2px solid var(--btn-color);
+  outline-offset: 8px;
+  border-radius: 4px; 
+}
+
 .nav-toggle {
   display: none;
   font-size: 2rem;
@@ -138,6 +144,12 @@ a {
   transform-origin: left;
 }
 
+.nav-link:focus-visible {
+  outline: 2px solid var(--btn-color);
+  outline-offset: 8px;
+  border-radius: 4px; 
+}
+
 .featured-post {
   margin-top: 2rem;
   background: rgba(0, 173, 181, 0.05);
@@ -162,6 +174,12 @@ a {
   text-decoration: none;
   color: var(--heading-color);
   text-shadow: 0 0 8px var(--btn-color);
+}
+
+.featured-title a:focus-visible {
+  outline: 2px solid var(--btn-color);
+  outline-offset: 8px;
+  border-radius: 4px; 
 }
 
 .featured-summary {

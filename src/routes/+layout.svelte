@@ -38,9 +38,7 @@
 	main {
 		overflow-y: scroll;
 		scroll-snap-type: y mandatory;
-		overflow: hidden;
 	}
-
 
 	.layout {
 		min-height: 100vh;
@@ -52,7 +50,7 @@
 		scroll-behavior: smooth;
 		background: var(--gradient-16);
 		z-index: 1;
-		overflow: hidden;
+		
 		
 
 
@@ -64,4 +62,11 @@
 			padding-inline: 0;
 		}
 	}
+
+	.layout > main {
+		grid-row: 2;
+		overflow-y: auto;
+		scroll-snap-type: y mandatory;
+		min-height: 0;
+}
 </style>

@@ -93,11 +93,11 @@ html {
 
 html,
 body {
-	height: 100%;
+	min-height: 100vh;
 	max-width: 100%;
 	scroll-behavior: smooth;
 	overflow-x: hidden;
-	
+	margin: 0;
 }
 
 html {

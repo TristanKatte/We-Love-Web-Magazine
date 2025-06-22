@@ -133,14 +133,23 @@
 
 	.filters {
 		display: flex;
+		flex-direction: column;
 		gap: 1rem;
-		flex-wrap: wrap;
 		margin: 1rem var(--size-5);
+	}
+
+	@media (min-width: 640px) {
+		.filters {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
 	}
 
 	fieldset {
 		border: 2px dashed var(--btn-color);
 		color: var(--txt-color);
+		padding: 0.5rem;
+		border-radius: 6px;
 	}
 
 	select {
@@ -153,19 +162,21 @@
 	}
 
 	.posts {
-		display: flex;
-		flex-flow: row nowrap;
-		margin: var(--size-5);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--size-5);
+		padding: var(--size-5);
 	}
 
-	@media (max-width: 1024px) {
+	@media (min-width: 640px) {
 		.posts {
-			column-count: 2;
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
-	@media (max-width: 640px) {
+
+	@media (min-width: 1024px) {
 		.posts {
-			column-count: 1;
+			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 
@@ -174,16 +185,13 @@
 		flex-direction: column;
 		justify-content: space-between;
 		background: var(--surface-2);
-		background: transparent;
 		border: 2px solid var(--btn-color);
 		border-radius: 8px;
-		display: inline-block;
-		width: 100%;
-		margin: 1em;
 		padding: var(--size-5);
 		transition:
 			transform 0.2s ease,
 			box-shadow 0.2s ease;
+		min-height: 100%;
 	}
 
 	.post:hover {
@@ -202,13 +210,14 @@
 		text-transform: capitalize;
 		margin: 0;
 	}
+
 	.title a {
 		color: var(--heading-color);
 		text-decoration: none;
 	}
 
 	.title a:focus {
-		outline: none; /* because the card gets the focus style */
+		outline: none;
 		text-decoration: underline;
 	}
 
@@ -230,3 +239,4 @@
 		font-size: 1rem;
 	}
 </style>
+

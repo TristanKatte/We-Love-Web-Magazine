@@ -2,7 +2,7 @@
 	import { formatDate } from '$lib/utils';
 	import * as config from '$lib/config';
 	import Hero from '$lib/components/organisms/Hero.svelte';
-	
+	import Button from '$lib/components/atoms/Button.svelte';
 
 	export let data;
 
@@ -63,63 +63,61 @@
 
 <Hero />
 
+<section aria-labelledby="filter-heading" class="filters-section">
+	<form class="filters" method="GET" aria-labelledby="filter-heading">
+		<h2 id="filter-heading" class="visually-hidden">Filter posts by date</h2>
 
-	<section aria-labelledby="filter-heading" class="filters-section">
-		<form class="filters" method="GET" aria-labelledby="filter-heading">
-			<h2 id="filter-heading" class="visually-hidden">Filter posts by date</h2>
+		<fieldset>
+			<legend>Jaar</legend>
+			<select id="filter-year" name="year">
+				<option value="">Alle Jaren</option>
+				{#each Array.from(years).sort() as year}
+					<option value={year} selected={filters.year === year}>{year}</option>
+				{/each}
+			</select>
+		</fieldset>
 
-			<fieldset>
-				<legend>Jaar</legend>
-				<select id="filter-year" name="year">
-					<option value="">Alle Jaren</option>
-					{#each Array.from(years).sort() as year}
-						<option value={year} selected={filters.year === year}>{year}</option>
-					{/each}
-				</select>
-			</fieldset>
+		<fieldset>
+			<legend>Maand</legend>
+			<select id="filter-month" name="month">
+				<option value="">Alle Maanden</option>
+				{#each monthMap as m}
+					<option value={m.value} selected={filters.month === m.value}>{m.name}</option>
+				{/each}
+			</select>
+		</fieldset>
 
-			<fieldset>
-				<legend>Maand</legend>
-				<select id="filter-month" name="month">
-					<option value="">Alle Maanden</option>
-					{#each monthMap as m}
-						<option value={m.value} selected={filters.month === m.value}>{m.name}</option>
-					{/each}
-				</select>
-			</fieldset>
+		<fieldset>
+			<legend>Dag</legend>
+			<select id="filter-day" name="day">
+				<option value="">Alle Dagen</option>
+				{#each Array.from(days).sort() as day}
+					<option value={day} selected={filters.day === day}>{day}</option>
+				{/each}
+			</select>
+		</fieldset>
 
-			<fieldset>
-				<legend>Dag</legend>
-				<select id="filter-day" name="day">
-					<option value="">Alle Dagen</option>
-					{#each Array.from(days).sort() as day}
-						<option value={day} selected={filters.day === day}>{day}</option>
-					{/each}
-				</select>
-			</fieldset>
+		<noscript>
+			<button type="submit">Pas Filters toe</button>
+		</noscript>
+	</form>
+</section>
 
-			<noscript>
-				<button type="submit">Pas Filters toe</button>
-			</noscript>
-		</form>
+<section aria-label="List of posts" id="posts">
+	<section class="posts">
+		{#each filteredPosts.slice(0, 4) as post, i}
+			<article class="post" aria-labelledby={`post-title-${i}`}>
+				<header>
+					<h3 class="title" id={`post-title-${i}`}>
+						<a href={`/issues/${post.slug}`}>{post.title}</a>
+					</h3>
+					<time class="date" datetime={post.date}>{formatDate(post.date)}</time>
+				</header>
+				<p class="description">{post.description}</p>
+			</article>
+		{/each}
 	</section>
-
-	<section aria-label="List of posts" id="posts">
-		<section class="posts">
-			{#each filteredPosts as post, i}
-				<article class="post" aria-labelledby={`post-title-${i}`}>
-					<header>
-						<h3 class="title" id={`post-title-${i}`}>
-							<a href={`/issues/${post.slug}`}>{post.title}</a>
-						</h3>
-						<time class="date" datetime={post.date}>{formatDate(post.date)}</time>
-					</header>
-					<p class="description">{post.description}</p>
-				</article>
-			{/each}
-      </section>
-	</section>
-
+</section>
 
 <style>
 	.visually-hidden {
@@ -140,10 +138,10 @@
 		margin: 1rem var(--size-5);
 	}
 
-  fieldset {
-    border: 2px dashed var(--btn-color);
-    color: var(--txt-color);
-  }
+	fieldset {
+		border: 2px dashed var(--btn-color);
+		color: var(--txt-color);
+	}
 
 	select {
 		padding: 0.5rem;
@@ -155,8 +153,9 @@
 	}
 
 	.posts {
-		column-count: 3;
-		column-gap: var(--size-6);
+		display: flex;
+		flex-flow: row nowrap;
+		margin: var(--size-5);
 	}
 
 	@media (max-width: 1024px) {
@@ -171,13 +170,16 @@
 	}
 
 	.post {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		background: var(--surface-2);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-2);
-		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+		background: transparent;
+		border: 2px solid var(--btn-color);
+		border-radius: 8px;
 		display: inline-block;
 		width: 100%;
-		margin: 0 0 var(--size-6);
+		margin: 1em;
 		padding: var(--size-5);
 		transition:
 			transform 0.2s ease,
@@ -189,7 +191,7 @@
 	}
 
 	.post:focus-within {
-		outline: 2px solid var(--accent, #007acc);
+		outline: 4px solid var(--btn-color);
 		outline-offset: 4px;
 		box-shadow: 0 0 0 4px rgba(0, 122, 204, 0.2);
 	}
@@ -201,7 +203,7 @@
 		margin: 0;
 	}
 	.title a {
-		color: var(--text-1);
+		color: var(--heading-color);
 		text-decoration: none;
 	}
 
@@ -216,7 +218,7 @@
 	}
 
 	.date {
-		color: var(--text-2);
+		color: var(--strong-color);
 		font-size: 0.9rem;
 		margin-top: var(--size-2);
 		display: block;
@@ -224,7 +226,7 @@
 
 	.description {
 		margin-top: var(--size-3);
-		color: var(--text-1);
+		color: var(--txt-color);
 		font-size: 1rem;
 	}
 </style>

@@ -45,7 +45,7 @@
 /* Hover/focus styling */
 .button:hover {
   background: var(--btn-color);
-  color: black;
+  color: rgb(199, 199, 199);
   text-shadow: none;
   box-shadow:
     0 0 10px var(--btn-color),

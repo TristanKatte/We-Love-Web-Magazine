@@ -3,6 +3,7 @@
 	import * as config from '$lib/config';
 	import Hero from '$lib/components/organisms/Hero.svelte';
 	import Button from '$lib/components/atoms/Button.svelte';
+	import { ArrowRight } from 'lucide-svelte';
 
 	export let data;
 
@@ -63,46 +64,6 @@
 
 <Hero />
 
-<section aria-labelledby="filter-heading" class="filters-section">
-	<form class="filters" method="GET" aria-labelledby="filter-heading">
-		<h2 id="filter-heading" class="visually-hidden">Filter posts by date</h2>
-
-		<fieldset>
-			<legend>Jaar</legend>
-			<select id="filter-year" name="year">
-				<option value="">Alle Jaren</option>
-				{#each Array.from(years).sort() as year}
-					<option value={year} selected={filters.year === year}>{year}</option>
-				{/each}
-			</select>
-		</fieldset>
-
-		<fieldset>
-			<legend>Maand</legend>
-			<select id="filter-month" name="month">
-				<option value="">Alle Maanden</option>
-				{#each monthMap as m}
-					<option value={m.value} selected={filters.month === m.value}>{m.name}</option>
-				{/each}
-			</select>
-		</fieldset>
-
-		<fieldset>
-			<legend>Dag</legend>
-			<select id="filter-day" name="day">
-				<option value="">Alle Dagen</option>
-				{#each Array.from(days).sort() as day}
-					<option value={day} selected={filters.day === day}>{day}</option>
-				{/each}
-			</select>
-		</fieldset>
-
-		<noscript>
-			<button type="submit">Pas Filters toe</button>
-		</noscript>
-	</form>
-</section>
-
 <section aria-label="List of posts" id="posts">
 	<section class="posts">
 		{#each filteredPosts.slice(0, 4) as post, i}
@@ -114,52 +75,16 @@
 					<time class="date" datetime={post.date}>{formatDate(post.date)}</time>
 				</header>
 				<p class="description">{post.description}</p>
+				<Button href={`/issues/${post.slug}`} size="small" icon={ArrowRight} aria-label={`Bekijk ${post.title}`}>Lees meer</Button>
 			</article>
 		{/each}
+		<Button href="/issues" size="large" icon={ArrowRight} aria-label="Bekijk alle issues">Alle issues</Button>
 	</section>
+	
 </section>
 
 <style>
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0 0 0 0);
-		border: 0;
-	}
-
-	.filters {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		margin: 1rem var(--size-5);
-	}
-
-	@media (min-width: 640px) {
-		.filters {
-			flex-direction: row;
-			flex-wrap: wrap;
-		}
-	}
-
-	fieldset {
-		border: 2px dashed var(--btn-color);
-		color: var(--txt-color);
-		padding: 0.5rem;
-		border-radius: 6px;
-	}
-
-	select {
-		padding: 0.5rem;
-		font-size: 1rem;
-		border: 1px solid var(--btn-color);
-		border-radius: 4px;
-		background: var(--surface-1);
-		color: var(--text-1);
-	}
+	
 
 	.posts {
 		display: grid;
@@ -185,7 +110,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		background: var(--surface-2);
-		border: 2px solid var(--btn-color);
+		border: 6px solid var(--btn-color);
 		border-radius: 8px;
 		padding: var(--size-5);
 		transition:
@@ -224,6 +149,7 @@
 	.title a:hover,
 	.title a:focus {
 		text-decoration: underline;
+		color: rgb(199, 199, 199);
 	}
 
 	.date {
@@ -237,6 +163,6 @@
 		margin-top: var(--size-3);
 		color: var(--txt-color);
 		font-size: 1rem;
+		margin-bottom: var(--size-3);
 	}
 </style>
-

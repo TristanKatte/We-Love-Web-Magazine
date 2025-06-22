@@ -50,9 +50,6 @@
 		scroll-behavior: smooth;
 		background: var(--gradient-16);
 		z-index: 1;
-		
-		
-
 
 		@media (max-width: 768px) {
 			padding-inline: var(--size-7);

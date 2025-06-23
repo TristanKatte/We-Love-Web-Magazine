@@ -55,7 +55,10 @@
 	});
 </script>
 
-<h1>Alle Issues</h1>
+<svelte:head>
+  <title>Issues</title>
+  <meta name="description" content="Issues" />
+</svelte:head>
 
 <section aria-labelledby="filter-heading" class="filters-section">
 	<form class="filters" aria-labelledby="filter-heading" on:submit|preventDefault>
@@ -94,6 +97,7 @@
 </section>
 
 <section class="container" aria-labelledby="blog-heading">
+  <h2>Issues</h2>
 	<section class="cards" aria-label="Blog posts">
 		{#each filteredPosts as issue, i}
 			<article class="card {i === 0 ? 'card--long' : ''}">
@@ -125,11 +129,15 @@
 </section>
 
 <style>
-	h1 {
+	h2 {
 		color: var(--heading-color);
 		font-size: 1.75rem;
 		margin-bottom: 1rem;
 	}
+
+  section {
+    padding: var(--size-5);
+  }
 
 	.visually-hidden {
 		position: absolute;

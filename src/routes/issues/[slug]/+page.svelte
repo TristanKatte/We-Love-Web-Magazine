@@ -33,6 +33,7 @@
 		max-inline-size: var(--size-content-3);
 		margin-inline: auto;
 
+
 		h1 {
 			text-transform: capitalize;
 			color: var(--heading-color);

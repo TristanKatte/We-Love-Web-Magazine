@@ -75,17 +75,21 @@
 					<time class="date" datetime={post.date}>{formatDate(post.date)}</time>
 				</header>
 				<p class="description">{post.description}</p>
-				<Button href={`/issues/${post.slug}`} size="small" icon={ArrowRight} aria-label={`Bekijk ${post.title}`}>Lees meer</Button>
+				<Button
+					href={`/issues/${post.slug}`}
+					size="small"
+					icon={ArrowRight}
+					aria-label={`Bekijk ${post.title}`}>Lees meer</Button
+				>
 			</article>
 		{/each}
-		<Button href="/issues" size="large" icon={ArrowRight} aria-label="Bekijk alle issues">Alle issues</Button>
+		<Button href="/issues" size="large" icon={ArrowRight} aria-label="Bekijk alle issues"
+			>Alle issues</Button
+		>
 	</section>
-	
 </section>
 
 <style>
-	
-
 	.posts {
 		display: grid;
 		grid-template-columns: 1fr;

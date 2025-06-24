@@ -56,8 +56,8 @@
 </script>
 
 <svelte:head>
-  <title>Issues</title>
-  <meta name="description" content="Issues" />
+	<title>Issues</title>
+	<meta name="description" content="Issues" />
 </svelte:head>
 
 <section aria-labelledby="filter-heading" class="filters-section">
@@ -97,7 +97,7 @@
 </section>
 
 <section class="container" aria-labelledby="blog-heading">
-  <h2>Issues</h2>
+	<h2>Issues</h2>
 	<section class="cards" aria-label="Blog posts">
 		{#each filteredPosts as issue, i}
 			<article class="card {i === 0 ? 'card--long' : ''}">
@@ -108,7 +108,7 @@
 				>
 					<img
 						class="card__img"
-						src={issue.image || 'https://picsum.photos/600/400?random=' + i}
+						src={issue.image ? `/images/${issue.image}` : `/images/fallback.jpg`}
 						alt={`Afbeelding bij ${issue.title}`}
 						loading="lazy"
 					/>
@@ -135,9 +135,9 @@
 		margin-bottom: 1rem;
 	}
 
-  section {
-    padding: var(--size-5);
-  }
+	section {
+		padding: var(--size-5);
+	}
 
 	.visually-hidden {
 		position: absolute;

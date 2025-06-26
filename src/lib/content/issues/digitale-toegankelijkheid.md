@@ -5,7 +5,7 @@ date: '2023-10-20'
 categories:
   - we love web
 published: true
-image: "/images/abstract-1.jpg"
+image: "/accessibility-1.jpg"
 ---
 
 # Waarom Toegankelijkheid op het Web Iedereen Aangaat

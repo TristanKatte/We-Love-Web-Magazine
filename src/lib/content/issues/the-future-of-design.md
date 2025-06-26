@@ -3,7 +3,7 @@ title: "The Future of Design"
 author: "Jane Doe"
 date: "2025-06-04"
 description: "A brief summary of the issue."
-image: "/images/abstract-1.jpg"
+image: "/futuristic-design.jpg"
 ---
 
 Welcome to the **first issue** of our digital magazine.

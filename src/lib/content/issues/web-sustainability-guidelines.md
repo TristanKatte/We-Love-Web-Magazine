@@ -5,7 +5,7 @@ date: '2025-06-13'
 categories:
   - we love web
 published: true
-image: "/images/abstract-1.jpg"
+image: "/web-sustainability.jpg"
 ---
 
 # 🌱 Web Sustainability: Wat We Kunnen Leren van Hidde de Vries

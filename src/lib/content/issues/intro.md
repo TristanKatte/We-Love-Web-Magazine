@@ -1,7 +1,7 @@
 ---
 title: "Intro"
 description: "A brief summary of the issue."
-image: "/images/abstract-1.jpg"
+image: "/intro.jpg"
 ---
 
 # Hello from Markdown!

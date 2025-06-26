@@ -5,7 +5,7 @@ date: '2025-01-17'
 categories:
   - we love web
 published: true
-image: "/images/abstract-1.jpg"
+image: "/voice-interface.jpg"
 ---
 # The Rise of AI-Powered Voice Interfaces on the Web
 

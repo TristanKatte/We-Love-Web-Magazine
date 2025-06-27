@@ -113,7 +113,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background: var(--surface-2);
+		background: var(--main-bg-color);
 		border: 6px solid var(--btn-color);
 		border-radius: 8px;
 		padding: var(--size-5);

@@ -5,6 +5,7 @@ date: '2025-03-28'
 categories:
   - we love web
 published: true
+image: "/digital-accessibility-1.jpg"
 ---
 
 # Digitale Toegankelijkheid: Toegankelijkheid is Liefde

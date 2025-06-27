@@ -1,12 +1,25 @@
 <script lang="ts">
 	import Header from '$lib/components/organisms/Header.svelte';
 	import Footer from '$lib/components/organisms/Footer.svelte';
+	
+	import { onNavigate } from '$app/navigation';
 	import 'open-props/style';
 	import 'open-props/normalize';
 	import 'open-props/buttons';
 	import '../app.css';
 
 	export let data;
+
+		onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <div class="layout">
@@ -30,6 +43,20 @@
 		--heading-color: #A2F3F3;
 		--project-card-color: #495057;
 		--strong-color: #f2e9e4;
+	}
+
+		::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: fade 300ms ease both;
+	}
+
+	@keyframes fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 
 	:global(html) {

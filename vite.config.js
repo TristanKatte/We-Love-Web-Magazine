@@ -5,8 +5,5 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [
 		enhancedImages(),
-		sveltekit()],
-	optimizeDeps: {
-		include: ['@unpic/svelte']
-	}
+		sveltekit()]
 	});

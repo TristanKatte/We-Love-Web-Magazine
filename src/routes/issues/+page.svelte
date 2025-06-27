@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
-	import { Image } from '@unpic/svelte';
-
 	export let data;
 	const { posts } = data;
 
-	// Filters
 	let filters = {
 		year: '',
 		month: '',
@@ -99,23 +96,23 @@
 </section>
 
 <section class="container" aria-labelledby="blog-heading">
-	<h2>Issues</h2>
+	<h2 id="blog-heading">Issues</h2>
 	<section class="cards" aria-label="Blog posts">
-		{#each posts as issue, i}
+		{#each filteredPosts as issue, i}
 			<article class="card {i === 0 ? 'card--long' : ''}">
 				<a
 					href={`/issues/${issue.slug}`}
 					aria-label={`Lees meer over ${issue.title}`}
 					class="card__link"
 				>
-					<Image
-						src={issue.image ? `/images/${issue.image}` : `/images/fallback.jpg`}
+					<img
+						class="card__img"
+						src={`/images/${issue.image ?? 'fallback.jpg'}`}
 						alt={`Afbeelding bij ${issue.title}`}
 						loading="lazy"
-						width={900}
-						height={700}
-						sizes="(max-width: 768px) 100vw, 33vw"
-						Class="card__img"
+						width="600"
+						height="400"
+						decoding="async"
 					/>
 					<header class="card__overlay">
 						<h2 class="card__title">{issue.title}</h2>
@@ -185,7 +182,7 @@
 		font-size: 1rem;
 		border: 1px solid var(--btn-color);
 		border-radius: 4px;
-		background-color: var(--surface-1);
+		background-color: var(--main-bg-color);
 		color: var(--text-1);
 		width: 100%;
 		box-sizing: border-box;
@@ -233,16 +230,16 @@
 		position: relative;
 	}
 
-	:global(.card__img) {
+	.card__img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		display: block;
-		transition: transform 0.5s ease;
+		transition: transform 0.5s ease, filter 0.3s ease;
 	}
 
-	:global(.card:hover .card__img),
-	:global(.card:focus-within .card__img) {
+	.card:hover .card__img,
+	.card:focus-within .card__img {
 		transform: scale(1.05);
 	}
 

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
+	import { Image } from '@unpic/svelte';
+
 	export let data;
 	const { posts } = data;
 
@@ -99,18 +101,21 @@
 <section class="container" aria-labelledby="blog-heading">
 	<h2>Issues</h2>
 	<section class="cards" aria-label="Blog posts">
-		{#each filteredPosts as issue, i}
+		{#each posts as issue, i}
 			<article class="card {i === 0 ? 'card--long' : ''}">
 				<a
 					href={`/issues/${issue.slug}`}
 					aria-label={`Lees meer over ${issue.title}`}
 					class="card__link"
 				>
-					<img
-						class="card__img"
+					<Image
 						src={issue.image ? `/images/${issue.image}` : `/images/fallback.jpg`}
 						alt={`Afbeelding bij ${issue.title}`}
 						loading="lazy"
+						width={900}
+						height={700}
+						sizes="(max-width: 768px) 100vw, 33vw"
+						Class="card__img"
 					/>
 					<header class="card__overlay">
 						<h2 class="card__title">{issue.title}</h2>
@@ -228,7 +233,7 @@
 		position: relative;
 	}
 
-	.card__img {
+	:global(.card__img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -236,8 +241,8 @@
 		transition: transform 0.5s ease;
 	}
 
-	.card:hover .card__img,
-	.card:focus-within .card__img {
+	:global(.card:hover .card__img),
+	:global(.card:focus-within .card__img) {
 		transform: scale(1.05);
 	}
 

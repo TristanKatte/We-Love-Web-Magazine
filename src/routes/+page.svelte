@@ -69,9 +69,9 @@
 		{#each filteredPosts.slice(0, 4) as post, i}
 			<article class="post" aria-labelledby={`post-title-${i}`}>
 				<header>
-					<h3 class="title" id={`post-title-${i}`}>
+					<h2 class="title" id={`post-title-${i}`}>
 						<a href={`/issues/${post.slug}`}>{post.title}</a>
-					</h3>
+					</h2>
 					<time class="date" datetime={post.date}>{formatDate(post.date)}</time>
 				</header>
 				<p class="description">{post.description}</p>

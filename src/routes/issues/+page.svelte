@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { formatDate } from '$lib/utils';
 	import { Image } from '@unpic/svelte';
 
 	export let data;
@@ -107,20 +108,15 @@
 					aria-label={`Lees meer over ${issue.title}`}
 					class="card__link"
 				>
-					<picture>
-
-						<source srcset={`/${issue.image}.webp`} type="image/webp" />
-						<img
-							src={`/${issue.image}.jpg`}
-							alt={`Afbeelding bij ${issue.title}`}
-							loading="lazy"
-							decoding="async"
-							width="400"
-							height="300"
-							sizes="(max-width: 768px) 100vw, 33vw"
-							class="card__img"
-						/>
-					</picture>
+					<Image
+						src={issue.image ? `/images/${issue.image}` : `/images/fallback.jpg`}
+						alt={`Afbeelding bij ${issue.title}`}
+						loading="lazy"
+						width={900}
+						height={700}
+						sizes="(max-width: 768px) 100vw, 33vw"
+						Class="card__img"
+					/>
 					<header class="card__overlay">
 						<h2 class="card__title">{issue.title}</h2>
 						{#if issue.tags?.length}
@@ -238,7 +234,6 @@
 	}
 
 	:global(.card__img) {
-		aspect-ratio: 4 / 3;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;

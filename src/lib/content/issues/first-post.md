@@ -6,7 +6,7 @@ categories:
   - sveltekit
   - svelte
 published: true
-image: "/abstract-4.jpg"
+image: "abstract-4.webp"
 ---
 
 ## Markdown

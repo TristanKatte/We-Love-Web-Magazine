@@ -41,7 +41,7 @@
 		--btn-color: #00adb5;
 		--txt-color: #DEDEDE;
 		--heading-color: #A2F3F3;
-		--project-card-color: #495057;
+		--project-card-color: #111827;
 		--strong-color: #f2e9e4;
 	}
 

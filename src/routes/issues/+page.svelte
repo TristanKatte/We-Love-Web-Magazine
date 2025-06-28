@@ -105,15 +105,19 @@
 					aria-label={`Lees meer over ${issue.title}`}
 					class="card__link"
 				>
+				<picture>
+					<source srcset={`/images/${issue.image ?? 'fallback.jpg'}`} type="image/webp" />
 					<img
-						class="card__img"
-						src={`/images/${issue.image ?? 'fallback.jpg'}`}
-						alt={`Afbeelding bij ${issue.title}`}
-						loading="lazy"
-						width="600"
-						height="400"
-						decoding="async"
+					class="card__img"
+					src={`/images/${issue.image ?? 'fallback.jpg'}`}
+					alt={`Afbeelding bij ${issue.title}`}
+					loading="lazy"
+					width="200"
+					height="200"
+					decoding="async"
 					/>
+				</picture>
+				 
 					<header class="card__overlay">
 						<h2 class="card__title">{issue.title}</h2>
 						{#if issue.tags?.length}
@@ -182,7 +186,7 @@
 		font-size: 1rem;
 		border: 1px solid var(--btn-color);
 		border-radius: 4px;
-		background-color: var(--main-bg-color);
+		background-color: var(--project-card-color);
 		color: var(--text-1);
 		width: 100%;
 		box-sizing: border-box;

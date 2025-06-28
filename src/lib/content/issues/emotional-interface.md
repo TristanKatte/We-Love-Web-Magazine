@@ -5,7 +5,7 @@ date: '2025-05-23'
 categories:
   - we love web
 published: true
-image: "/emotional-interface-2.jpg"
+image: "emotional-interface-2.webp"
 ---
 
 ## Hoe creëer je een interface die echt verbindt?

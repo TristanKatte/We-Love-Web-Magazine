@@ -113,7 +113,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background: var(--main-bg-color);
+		background: var(--project-card-color);
 		border: 6px solid var(--btn-color);
 		border-radius: 8px;
 		padding: var(--size-5);

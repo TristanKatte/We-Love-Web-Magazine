@@ -5,7 +5,7 @@ date: '2023-09-19'
 categories:
   - we love web
 published: true
-image: "/accessibility-2.jpg"
+image: "accessibility-2.webp"
 ---
 # Waarom Digitale Toegankelijkheid Iedereen Aangaat
 

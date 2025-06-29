@@ -2,34 +2,34 @@
   // data of logic kan hier als nodig
 </script>
 
-<main class="about-me">
-  <article>
+
+  <article class="about-me">
     <header>
       <h1>Over Mij</h1>
     </header>
 
     <section>
       <p>
-        Hallo! Ik ben [Je Naam], een enthousiaste webontwikkelaar gespecialiseerd in toegankelijke, performante en moderne webapplicaties.
+        Hallo! Ik ben Tristan, een enthousiaste webontwikkelaar/frontend developer gespecialiseerd in toegankelijke, performante en moderne webapplicaties.
       </p>
       <p>
         Mijn passie ligt bij het bouwen van gebruiksvriendelijke websites die voor iedereen toegankelijk zijn.
       </p>
       <p>
-        Als je meer wilt weten, neem gerust contact op via de <a href="/contact">contactpagina</a>.
+        Als je meer wilt weten, neem gerust contact op via de <a href="/contact">contactpagina</a> of bezoek mijn portfolio.
       </p>
     </section>
   </article>
-</main>
+
 
 <style>
   /* Styles hetzelfde als eerder, mobile-first */
-  main.about-me {
+.about-me {
     padding: 1rem;
     max-width: 600px;
     margin-inline: auto;
     font-family: system-ui, sans-serif;
-    color: #222;
+    color: var(--txt-color);
     line-height: 1.5;
   }
 
@@ -49,7 +49,7 @@
   }
 
   @media (min-width: 600px) {
-    main.about-me {
+    .about-me {
       padding: 2rem;
       font-size: 1.125rem;
     }

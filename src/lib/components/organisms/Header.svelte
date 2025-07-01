@@ -33,9 +33,13 @@
 					class="nav-link"
 					target={link.external ? '_blank' : null}
 					rel={link.external ? 'noopener noreferrer' : null}
-					on:click|preventDefault={() => {
-						if (!link.external) navigateTo(link.href);
-						else navOpen = false;
+					on:click={(event) => {
+						if (!link.external) {
+							event.preventDefault();
+							navigateTo(link.href);
+						} else {
+							navOpen = false;
+						}
 					}}>{link.label}</a
 				>
 			{/each}

@@ -98,26 +98,26 @@
 <section class="container" aria-labelledby="blog-heading">
 	<h2 id="blog-heading">Issues</h2>
 	<section class="cards" aria-label="Blog posts">
-		{#each filteredPosts as issue, i}
-			<article class="card {i === 0 ? 'card--long' : ''}">
+		{#each filteredPosts as issue}
+			<article class="card">
 				<a
 					href={`/issues/${issue.slug}`}
 					aria-label={`Lees meer over ${issue.title}`}
 					class="card__link"
 				>
-				<picture>
-					<source srcset={`/images/${issue.image ?? 'fallback.jpg'}`} type="image/webp" />
-					<img
-					class="card__img"
-					src={`/images/${issue.image ?? 'fallback.jpg'}`}
-					alt={`Afbeelding bij ${issue.title}`}
-					loading="lazy"
-					width="200"
-					height="200"
-					decoding="async"
-					/>
-				</picture>
-				 
+					<picture>
+						<source srcset={`/images/${issue.image ?? 'fallback.jpg'}`} type="image/webp" />
+						<img
+							class="card__img"
+							src={`/images/${issue.image ?? 'fallback.jpg'}`}
+							alt={`Afbeelding bij ${issue.title}`}
+							loading="lazy"
+							width="200"
+							height="200"
+							decoding="async"
+						/>
+					</picture>
+
 					<header class="card__overlay">
 						<h2 class="card__title">{issue.title}</h2>
 						{#if issue.tags?.length}
@@ -192,43 +192,33 @@
 		box-sizing: border-box;
 	}
 
+	/* ✅ Masonry layout using column-count */
 	.cards {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 1.5rem;
-	}
-
-	@media (min-width: 768px) {
-		.cards {
-			grid-template-columns: repeat(3, 1fr);
-			grid-auto-rows: 200px;
-		}
+		column-count: 3;
+		column-gap: 1.5rem;
 	}
 
 	.card {
-		position: relative;
-		overflow: hidden;
-		border-radius: 12px;
-		box-shadow:
-			0 10px 15px -3px rgb(0 0 0 / 0.1),
-			0 4px 6px -2px rgb(0 0 0 / 0.05);
-		cursor: pointer;
-		transition:
-			transform 0.3s ease,
-			box-shadow 0.3s ease;
+		break-inside: avoid;
+		margin-bottom: 1.5rem;
+		display: block;
+		width: 100%;
 	}
 
-	.card:hover,
-	.card:focus-within {
-		transform: translateY(-5px);
-		box-shadow:
-			0 20px 25px -5px rgb(0 0 0 / 0.2),
-			0 10px 10px -5px rgb(0 0 0 / 0.1);
+	@media (max-width: 1024px) {
+		.cards {
+			column-count: 2;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.cards {
+			column-count: 1;
+		}
 	}
 
 	.card__link {
 		display: block;
-		height: 100%;
 		color: inherit;
 		text-decoration: none;
 		position: relative;
@@ -236,15 +226,16 @@
 
 	.card__img {
 		width: 100%;
-		height: 100%;
+		height: auto;
 		object-fit: cover;
 		display: block;
+		border-radius: 12px;
 		transition: transform 0.5s ease, filter 0.3s ease;
 	}
 
 	.card:hover .card__img,
 	.card:focus-within .card__img {
-		transform: scale(1.05);
+		transform: scale(1.03);
 	}
 
 	.card__overlay {
@@ -286,17 +277,5 @@
 		border-radius: 10px;
 		user-select: none;
 		white-space: nowrap;
-	}
-
-	.card--long {
-		grid-row: span 2;
-		height: 100%;
-	}
-
-	@media (max-width: 767px) {
-		.card--long {
-			grid-row: auto;
-			height: 300px;
-		}
 	}
 </style>

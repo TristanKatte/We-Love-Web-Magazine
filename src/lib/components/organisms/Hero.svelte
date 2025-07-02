@@ -35,20 +35,24 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 2rem 1rem;
+		padding: 3rem 2rem;
 		gap: 2rem;
-		text-align: center;
+		text-align: left;
+		width: 100%; 
 	}
 
 	.hero-left,
 	.hero-right {
 		width: 100%;
-		max-width: 600px;
+		max-width: 800px;
 	}
 
-	.hero-right {
+	.hero-right,
+	.hero-left {
 		display: flex;
 		justify-content: center;
+		width: 100%;
+		text-align: left;
 	}
 
 	@media (min-width: 768px) {
@@ -81,12 +85,18 @@
 			gap: 1.5rem;
 		}
 
-		.hero-left,
-		.hero-right {
+		
+		
+		.hero-left {
 			width: 100%;
 			max-width: 100%;
 			display: flex;
 			justify-content: center;
+			text-align: left;
+		}
+
+		.hero-right {
+			display: none;
 		}
 	}
 </style>

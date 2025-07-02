@@ -32,6 +32,7 @@
 		height: 100%;
 		max-inline-size: var(--size-content-3);
 		margin-inline: auto;
+		padding: var(--size-3);
 
 
 		h1 {

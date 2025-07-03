@@ -8,6 +8,8 @@ published: true
 image: "polypane.jpg"
 ---
 
+![Polypane](/images/polypane.jpg)<br>
+
 # Building Your Own Browser for Fun and Profit
 
 **Polypane** is een browser speciaal ontwikkeld voor developers. Zonder investeerders of grote bedrijven achter zich wist maker **Kilian Valkhof** een browser te bouwen die nu gebruikt wordt door zowel professionals als studenten. Het begon allemaal met passie en kleine projecten die uiteindelijk leidden tot de ontwikkeling van Polypane.

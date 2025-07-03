@@ -10,6 +10,10 @@ image: "gsap.jpg"
 
 # GSAP: De Krachtige Animatiebibliotheek voor het Web
 
+![GSAP](/images/gsap.jpg)<br>
+
+
+
 [GSAP (GreenSock Animation Platform)](https://gsap.com/) is een krachtige animatiebibliotheek waarmee je zowel 2D- als 3D-animaties kunt maken. Of je nu werkt met vanilla JavaScript, React, Svelte of een andere stack — GSAP is universeel inzetbaar.
 
 ---

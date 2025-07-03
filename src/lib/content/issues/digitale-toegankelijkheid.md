@@ -8,7 +8,9 @@ published: true
 image: "/accessibility-1.webp"
 ---
 
-# Waarom Toegankelijkheid op het Web Iedereen Aangaat
+![toegankelijkheid](/images/accessibility-1.jpg)<br>
+
+## Waarom Toegankelijkheid op het Web Iedereen Aangaat
 
 Op 20 oktober woonde ik een **We Love Web-presentatie** bij over digitale toegankelijkheid. Deze sessie werd gepresenteerd door **Ischa Gast**, die meteen een opvallend punt maakte: *Iedereen heeft in zekere zin een beperking*, ook al lijkt dat niet altijd zo. Of het nu gaat om vermoeidheid, een tijdelijke blessure of omgevingsfactoren zoals fel zonlicht op je scherm — beperkingen zijn universeel.
 

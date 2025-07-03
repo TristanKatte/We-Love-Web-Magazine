@@ -7,6 +7,9 @@ categories:
 published: true
 image: "accessibility-2.webp"
 ---
+
+![accessibility](/images/accessibility-2.jpg)<br>
+
 # Waarom Digitale Toegankelijkheid Iedereen Aangaat
 
 Op 19 september woonde ik een mini-symposium bij over **digitale toegankelijkheid**. Hoewel ik zelf geen beperking heb, werd al snel duidelijk hoe belangrijk het is om je tóch druk te maken over dit onderwerp. Tijdens het symposium kwamen meerdere mensen aan het woord die leven met uiteenlopende beperkingen — van doofheid tot het niet kunnen gebruiken van hun armen. Hun verhalen maakten digitale barrières niet alleen zichtbaar, maar vooral voelbaar.

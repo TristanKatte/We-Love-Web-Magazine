@@ -7,6 +7,9 @@ categories:
 published: true
 image: "voice-interface.webp"
 ---
+
+![voice-interface](/images/voice-interface.jpg)<br>
+
 # The Rise of AI-Powered Voice Interfaces on the Web
 
 *Lezing door Dave Bitter – over spraakherkenning, AI, en hoe je daarmee toffe dingen bouwt.*

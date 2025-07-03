@@ -8,6 +8,8 @@ published: true
 image: "web-sustainability.webp"
 ---
 
+![web-sustainability-guidelines](/images/web-sustainability.jpg)<br>
+
 # 🌱 Web Sustainability: Wat We Kunnen Leren van Hidde de Vries
 
 Tijdens CSS Day kwam Hidde de Vries met een confronterende, maar inspirerende boodschap: het web dat wij bouwen draagt bij aan de klimaatcrisis — en we kunnen daar iets aan doen. Niet morgen. Nu.

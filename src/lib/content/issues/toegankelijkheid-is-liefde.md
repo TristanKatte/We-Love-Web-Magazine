@@ -8,7 +8,9 @@ published: true
 image: "digital-accessibility-1.webp"
 ---
 
-# Digitale Toegankelijkheid: Toegankelijkheid is Liefde
+![digital-accessibility](/images/digital-accessibility-1.jpg)<br>
+
+## Digitale Toegankelijkheid: Toegankelijkheid is Liefde
 
 _Toegankelijkheid is liefde geven aan anderen._  
 Deze uitspraak van Ischa Gast vat de essentie van digitale toegankelijkheid krachtig samen. Tijdens zijn presentatie benadrukte hij dat toegankelijkheid niet slechts een technisch aspect is, maar een morele verplichting om het web voor iedereen bruikbaar te maken.

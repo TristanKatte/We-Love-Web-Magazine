@@ -8,6 +8,8 @@ published: true
 image: "emotional-interface-2.webp"
 ---
 
+![emotional-interface](/images/emotional-interface-2.jpg)<br>
+
 ## Hoe creëer je een interface die echt verbindt?
 
 In een digitale wereld waarin gebruikers dagelijks tientallen websites en apps gebruiken, is het essentieel om op te vallen — niet met felle kleuren of opdringerige banners, maar met **gevoel**. Emotional interface design draait om het **activeren van empathie, betrokkenheid en verbondenheid** in digitale interacties. Ofwel: *hoe zorg je ervoor dat gebruikers zich verbonden voelen met jouw website?*
@@ -27,6 +29,8 @@ Zachte, vriendelijke interfaces stralen rust en vertrouwen uit. Denk hierbij aan
 - **Gecentreerde aandacht** – leid de blik van de gebruiker subtiel naar wat belangrijk is
 
 Door een interface 'zachter' te maken, voelt het menselijker aan. Het nodigt uit tot interactie in plaats van het af te dwingen.
+
+![soft-ui](/images/soft-ui.jpg)<br>
 
 ---
 

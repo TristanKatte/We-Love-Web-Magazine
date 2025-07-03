@@ -1,13 +1,11 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
+	import Button from '$lib/components/atoms/Button.svelte';
+	import { ArrowRight } from 'lucide-svelte';
 	export let data;
 	const { posts } = data;
 
-	let filters = {
-		year: '',
-		month: '',
-		day: ''
-	};
+	let filters = { year: '', month: '', day: '' };
 
 	let years = new Set<string>();
 	let months = new Set<string>();
@@ -98,184 +96,177 @@
 <section class="container" aria-labelledby="blog-heading">
 	<h2 id="blog-heading">Issues</h2>
 	<section class="cards" aria-label="Blog posts">
-		{#each filteredPosts as issue}
-			<article class="card">
-				<a
-					href={`/issues/${issue.slug}`}
-					aria-label={`Lees meer over ${issue.title}`}
-					class="card__link"
-				>
-					<picture>
-						<source srcset={`/images/${issue.image ?? 'fallback.jpg'}`} type="image/webp" />
-						<img
-							class="card__img"
-							src={`/images/${issue.image ?? 'fallback.jpg'}`}
-							alt={`Afbeelding bij ${issue.title}`}
-							loading="lazy"
-							width="200"
-							height="200"
-							decoding="async"
-						/>
-					</picture>
+		{#each filteredPosts as issue, i}
+			<article class="post" aria-labelledby={`post-title-${i}`}>
+				{#if issue.image}
+					<img
+						class="thumb"
+						src={`/images/${issue.image}`}
+						alt=""
+						aria-hidden="true"
+						width="400"
+						height="200"
+						loading="lazy"
+						decoding="async"
+						view-transition-name={`image-${issue.slug}`}
+					/>
+				{:else}
+					<div class="thumb fallback" aria-hidden="true"></div>
+				{/if}
 
-					<header class="card__overlay">
-						<h2 class="card__title">{issue.title}</h2>
-						{#if issue.tags?.length}
-							<ul class="card__tags" aria-label="Tags">
-								{#each issue.tags as tag}
-									<li class="card__tag">{tag}</li>
-								{/each}
-							</ul>
-						{/if}
-					</header>
-				</a>
+				<header>
+					<h3 class="title" id={`post-title-${i}`} view-transition-name={`title-${issue.slug}`}>{issue.title}</h3>
+						<a href={`/issues/${issue.slug}`}>{issue.title}</a>
+					<time class="date" datetime={issue.date}>{formatDate(issue.date)}</time>
+				</header>
+
+				<p class="description">{issue.description}</p>
+
+				{#if issue.tags?.length}
+					<ul class="card__tags" aria-label="Tags">
+						{#each issue.tags as tag}
+							<li class="card__tag">{tag}</li>
+						{/each}
+					</ul>
+				{/if}
+
+				<Button
+					href={`/issues/${issue.slug}`}
+					size="small"
+					icon={ArrowRight}
+					aria-label={`Bekijk ${issue.title}`}
+				>
+					Lees meer
+				</Button>
 			</article>
 		{/each}
 	</section>
 </section>
 
 <style>
-	h2 {
-		color: var(--heading-color);
-		font-size: 1.75rem;
-		margin-bottom: 1rem;
-	}
-
-	section {
+	/* Filter styling (optioneel behouden) */
+	.filters-section {
 		padding: var(--size-5);
 	}
-
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0 0 0 0);
-		white-space: nowrap;
-		border: 0;
-	}
-
 	.filters {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-		margin: 1rem var(--size-5);
 	}
-
-	@media (min-width: 640px) {
-		.filters {
-			flex-direction: row;
-			flex-wrap: wrap;
-			align-items: flex-start;
-		}
-	}
-
 	fieldset {
 		border: 2px dashed var(--btn-color);
-		color: var(--txt-color);
 		padding: 0.75rem;
 		border-radius: 6px;
-		min-width: 0;
-		flex: 1 1 25px;
 	}
-
 	select {
 		padding: 0.5rem;
-		font-size: 1rem;
 		border: 1px solid var(--btn-color);
 		border-radius: 4px;
 		background-color: var(--project-card-color);
 		color: var(--text-1);
-		width: 100%;
-		box-sizing: border-box;
 	}
 
-	/* ✅ Masonry layout using column-count */
+	/* Posts grid */
 	.cards {
-		column-count: 3;
-		column-gap: 1.5rem;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--size-5);
+		padding: var(--size-5);
 	}
 
-	.card {
-		break-inside: avoid;
-		margin-bottom: 1.5rem;
-		display: block;
-		width: 100%;
-	}
-
-	@media (max-width: 1024px) {
+	@media (min-width: 640px) {
 		.cards {
-			column-count: 2;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1024px) {
+		.cards {
+			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 
-	@media (max-width: 640px) {
-		.cards {
-			column-count: 1;
-		}
-	}
-
-	.card__link {
-		display: block;
-		color: inherit;
-		text-decoration: none;
-		position: relative;
-	}
-
-	.card__img {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-		display: block;
-		border-radius: 12px;
-		transition: transform 0.5s ease, filter 0.3s ease;
-	}
-
-	.card:hover .card__img,
-	.card:focus-within .card__img {
-		transform: scale(1.03);
-	}
-
-	.card__overlay {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-		color: white;
-		padding: 1rem;
+	.post {
 		display: flex;
-		align-items: flex-end;
-		height: 50%;
-		border-bottom-left-radius: 12px;
-		border-bottom-right-radius: 12px;
-		box-sizing: border-box;
+		flex-direction: column;
+		justify-content: flex-start; /* standaard */
+		background: var(--project-card-color);
+		border: 6px solid var(--btn-color);
+		border-radius: 8px;
+		padding: var(--size-5);
+		min-height: 100%;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
 	}
 
-	.card__title {
+	.post:hover {
+		transform: translateY(-5px);
+	}
+
+	.thumb {
+		width: 100%;
+		height: 160px;
+		object-fit: cover;
+		border-radius: 6px;
+		margin-bottom: var(--size-3);
+	}
+
+	.thumb.fallback {
+		display: block;
+		background: radial-gradient(
+			at top left,
+			var(--btn-color),
+			var(--heading-color),
+			var(--project-card-color)
+		);
+		filter: blur(4px);
+	}
+
+	.title {
+		font-size: var(--font-size-fluid-2);
+		font-weight: bold;
 		margin: 0;
-		font-size: 1.25rem;
-		line-height: 1.2;
+	}
+
+	.title a {
+		color: var(--heading-color);
+		text-decoration: none;
+	}
+
+	.title a:hover,
+	.title a:focus {
+		text-decoration: underline;
+		color: rgb(199, 199, 199);
+	}
+
+	.date {
+		color: var(--strong-color);
+		font-size: 0.9rem;
+		margin-top: var(--size-2);
+		display: block;
+	}
+
+	.description {
+		margin-top: var(--size-3);
+		color: var(--txt-color);
+		margin-bottom: var(--size-3);
 	}
 
 	.card__tags {
 		display: flex;
-		gap: 0.4rem;
-		margin: 0.4rem 0 0 0;
-		padding: 0;
-		list-style: none;
 		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-bottom: var(--size-3);
+		list-style: none;
+		padding: 0;
 	}
 
 	.card__tag {
 		font-size: 0.75rem;
-		background: rgba(255 255 255 / 0.25);
-		color: white;
-		padding: 0.15rem 0.5rem;
+		background: rgba(0, 0, 0, 0.1);
+		color: var(--txt-color);
+		padding: 0.25rem 0.5rem;
 		border-radius: 10px;
-		user-select: none;
 		white-space: nowrap;
 	}
 </style>

@@ -107,16 +107,16 @@
 						width="400"
 						height="200"
 						loading="lazy"
-						decoding="async"
-						view-transition-name={`image-${issue.slug}`}
+						
 					/>
 				{:else}
 					<div class="thumb fallback" aria-hidden="true"></div>
 				{/if}
 
 				<header>
-					<h3 class="title" id={`post-title-${i}`} view-transition-name={`title-${issue.slug}`}>{issue.title}</h3>
+					<h3 class="title" id={`post-title-${i}`}>
 						<a href={`/issues/${issue.slug}`}>{issue.title}</a>
+					</h3>
 					<time class="date" datetime={issue.date}>{formatDate(issue.date)}</time>
 				</header>
 

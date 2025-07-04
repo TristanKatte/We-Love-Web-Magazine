@@ -4,6 +4,7 @@ description: Hoe Kilian Valkhof Polypane maakte en daar winst mee maakt
 date: '2025-02-14'
 categories:
   - we love web
+  - browsers
 published: true
 image: "polypane.jpg"
 ---

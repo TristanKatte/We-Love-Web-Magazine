@@ -4,6 +4,7 @@ description: Een presentatie over hoe je digitale toegankelijkheid kan toepassen
 date: '2023-10-20'
 categories:
   - we love web
+  - accessibility
 published: true
 image: "/accessibility-1.webp"
 ---

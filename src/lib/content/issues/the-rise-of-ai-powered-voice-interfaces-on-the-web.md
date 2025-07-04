@@ -4,6 +4,7 @@ description: Lezing door Dave Bitter – over spraakherkenning, AI, en hoe je da
 date: '2025-01-17'
 categories:
   - we love web
+  - interface
 published: true
 image: "voice-interface.webp"
 ---

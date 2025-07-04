@@ -199,6 +199,14 @@
 			box-shadow 0.2s ease;
 	}
 
+	section {
+		padding: var(--size-3);
+	}
+
+	h2 {
+		color: var(--heading-color);
+	}
+
 	.post:hover {
 		transform: translateY(-5px);
 	}

@@ -4,6 +4,7 @@ description: Hoe Hidde de Vries en Display Green web sustainability concreet mak
 date: '2025-06-13'
 categories:
   - we love web
+  - web-sustainability
 published: true
 image: "web-sustainability.webp"
 ---

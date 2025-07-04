@@ -30,16 +30,19 @@
 <style>
 	article {
 		height: 100%;
+		width: 100%;
 		max-inline-size: var(--size-content-3);
 		margin-inline: auto;
-		padding: var(--size-3);
+		padding: var(--size-4);
+		
 
 
 		h1 {
 			text-transform: capitalize;
 			color: var(--heading-color);
 			font-family: 'Cantarell', sans-serif;
-			font-weight: 700;
+			font-weight: 400;
+			padding: var(--size-3);
 		}
 
 		h1 + p {

@@ -4,6 +4,7 @@ description: Hoe je je projecten meer toegankelijk kan maken
 date: '2025-03-28'
 categories:
   - we love web
+  - accessibility
 published: true
 image: "digital-accessibility-1.webp"
 ---

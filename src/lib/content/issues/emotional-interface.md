@@ -4,6 +4,7 @@ description: Hoe je emotie kan afstemmen op je UI, door Kalok Yeung
 date: '2025-05-23'
 categories:
   - we love web
+  - interface
 published: true
 image: "emotional-interface-2.webp"
 ---

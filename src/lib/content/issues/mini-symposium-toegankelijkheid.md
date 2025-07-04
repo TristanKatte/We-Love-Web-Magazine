@@ -4,6 +4,7 @@ description: Een symposium waarbij mensen met een handicap spreken
 date: '2023-09-19'
 categories:
   - we love web
+  - accessibility
 published: true
 image: "accessibility-2.webp"
 ---

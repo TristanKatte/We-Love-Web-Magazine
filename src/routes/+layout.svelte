@@ -3,6 +3,7 @@
 	import Footer from '$lib/components/organisms/Footer.svelte';
 	
 	import { onNavigate } from '$app/navigation';
+	
 	import 'open-props/style';
 	import 'open-props/normalize';
 	import 'open-props/buttons';

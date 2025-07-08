@@ -107,7 +107,7 @@
 						width="400"
 						height="200"
 						loading="lazy"
-						
+						data-view-transition-name={`image-${issue.slug}`}	
 					/>
 				{:else}
 					<div class="thumb fallback" aria-hidden="true"></div>

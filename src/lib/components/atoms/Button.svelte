@@ -5,7 +5,6 @@
   export let href = '#';
   export let size: 'small' | 'medium' | 'large' | null = null;
   export let icon: ComponentType = ArrowDown;
-  // verwijder `ariaLabel`, die is dan niet nodig
 </script>
 
 <a

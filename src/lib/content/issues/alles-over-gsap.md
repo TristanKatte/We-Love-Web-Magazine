@@ -8,7 +8,7 @@ published: true
 image: "gsap.jpg"
 ---
 
-# GSAP: De Krachtige Animatiebibliotheek voor het Web
+# De Krachtige animation-tool voor het Web
 
 ![GSAP](/images/gsap.jpg)<br>
 
@@ -98,7 +98,7 @@ Deze methodes geven je de mogelijkheid om animaties te pauzeren of opnieuw te st
 
 ---
 
-## Meer Leren?
+### Meer Leren?
 
 Bekijk de officiële GSAP demo’s voor inspiratie en voorbeelden:  
 👉 [GSAP Demos](https://gsap.com/demos/?page=1)

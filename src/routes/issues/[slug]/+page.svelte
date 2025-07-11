@@ -59,6 +59,7 @@
 			display: flex;
 			gap: var(--size-3);
 			margin-top: var(--size-7);
+			margin-bottom: var(--size-7);
 			font-family: "Numans", sans-serif;
 			font-weight: 400;
 

@@ -110,20 +110,20 @@
 }
 
 @keyframes slide-from-right {
-  from { transform: translateX(30px); }
+  from { transform: translateX(90px); }
 }
 
 @keyframes slide-to-left {
-  to { transform: translateX(-30px); }
+  to { transform: translateX(-90px); }
 }
 
 ::view-transition-old(root) {
-  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+  animation: 120ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    200ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(root) {
-  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 120ms both fade-in,
+    200ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 </style>

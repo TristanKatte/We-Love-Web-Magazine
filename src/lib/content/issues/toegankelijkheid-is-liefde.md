@@ -1,6 +1,6 @@
 ---
 title: Toegankelijkheid is Liefde
-description: Hoe je je projecten meer toegankelijk kan maken
+description: Hoe je je projecten meer toegankelijk kan maken, Ischa Gast
 date: '2025-03-28'
 categories:
   - we love web

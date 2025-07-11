@@ -31,14 +31,14 @@ GSAP werkt met twee basisprincipes: **tweens** en **timelines**.
 - **Tweens** zijn individuele animaties waarbij je een element (`target`) een bepaalde stijlverandering (`doel`) laat ondergaan met een `method`. Denk aan het verplaatsen, schalen of roteren van elementen.
 
   Voorbeeld:
-  ```js
+  ```ts
   gsap.to(".box", { x: 100, duration: 1 });
   ```
 
 - **Timelines** zijn handig om meerdere animaties te groeperen en beter te controleren. Hiermee kun je animaties na elkaar laten afspelen, overlappen of synchroniseren.
 
   Voorbeeld:
-  ```js
+  ```ts
   const tl = gsap.timeline();
   tl.to(".box", { x: 100, duration: 1 });
   tl.to(".box", { rotation: 360, duration: 1 });
@@ -53,7 +53,7 @@ Een van de populairste uitbreidingen van GSAP is **ScrollTrigger**. Hiermee kun 
 ScrollTrigger ondersteunt ook smooth scrolling en pinning, wat zorgt voor een premium gebruikerservaring.
 
 Voorbeeld:
-```js
+```ts
 gsap.to(".section", {
   scrollTrigger: ".section",
   x: 500,
@@ -70,7 +70,7 @@ gsap.to(".section", {
 - `gsap.utils.random(min, max, snap)` – genereert een willekeurige waarde binnen een bepaald bereik, optioneel met afronding naar dichtstbijzijnde waarde.
 
 Voorbeeld:
-```js
+```ts
 const randX = gsap.utils.random(0, 100);
 gsap.to(".box", { x: randX, duration: 1 });
 ```

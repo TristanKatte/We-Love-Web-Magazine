@@ -5,7 +5,7 @@
 
   <article class="about-me">
     <header>
-      <h1>Over Mij</h1>
+      <h2>Over Mij</h2>
     </header>
 
     <section>
@@ -16,7 +16,7 @@
         Mijn passie ligt bij het bouwen van gebruiksvriendelijke websites die voor iedereen toegankelijk zijn.
       </p>
       <p>
-        Als je meer wilt weten, neem gerust contact op via de <a href="/contact">contactpagina</a> of bezoek mijn portfolio.
+        Als je meer wilt weten,neem dan een kijkje op mijn portfolio.
       </p>
     </section>
   </article>
@@ -28,24 +28,18 @@
     padding: 1rem;
     max-width: 600px;
     margin-inline: auto;
-    font-family: system-ui, sans-serif;
+    font-family: Numans, sans-serif;
     color: var(--txt-color);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
-  h1 {
-    font-size: 1.8rem;
+  h2 {
     margin-bottom: 0.75rem;
-    color: #007acc;
+    color: var(--heading-color);
   }
 
-  a {
-    color: #007acc;
-    text-decoration: underline;
-  }
-  a:focus, a:hover {
-    outline: 2px solid #007acc;
-    outline-offset: 2px;
+  p {
+    margin-bottom: 1rem;
   }
 
   @media (min-width: 600px) {

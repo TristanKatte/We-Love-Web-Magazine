@@ -188,7 +188,7 @@
 	.post {
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-start; /* standaard */
+		justify-content: space-between; /* standaard */
 		background: var(--project-card-color);
 		border: 6px solid var(--btn-color);
 		border-radius: 8px;

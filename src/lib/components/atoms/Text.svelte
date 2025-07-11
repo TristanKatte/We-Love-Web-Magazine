@@ -1,31 +1,22 @@
-<p class="text">
+<script>
+  export let size = 'base'; // base, small, large
+</script>
+
+<p class={`text ${size}`}>
   <slot />
 </p>
 
 <style>
   .text {
-    font-size: 1.5em;
-    color: var(--txt-color, #eeeeee);
-    max-width: 60ch;
-    line-height: 1.6;
-    font-family: numans, sans-serif;
+    /* default size */
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
   }
 
-  @media (min-width: 1024px) {
-    .text {
-      font-size: 1.2em;
-    }
+  .text.small {
+    font-size: clamp(0.875rem, 1vw + 0.3rem, 1.1rem);
   }
 
-    @media (min-width: 768px) {
-    .text {
-      font-size: 1.1em;
-    }
-  }
-
-    @media (max-width: 480px) {
-    .text {
-      font-size: 1em;
-    }
+  .text.large {
+    font-size: clamp(1.25rem, 2vw + 0.5rem, 2rem);
   }
 </style>
